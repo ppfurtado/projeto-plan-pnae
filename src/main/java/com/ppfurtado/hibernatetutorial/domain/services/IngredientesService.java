@@ -1,2 +1,12 @@
-package com.ppfurtado.hibernatetutorial.domain.services;public interface IngredientesService {
+package com.ppfurtado.hibernatetutorial.domain.services;
+
+import com.ppfurtado.hibernatetutorial.domain.model.Ingredientes;
+
+import java.util.List;
+
+public interface IngredientesService {
+
+    List<Ingredientes> buscarIngrediente();
+
+    Ingredientes buscarIngredientesPorId(Long id);
 }
