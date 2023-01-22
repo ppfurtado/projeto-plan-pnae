@@ -13,11 +13,12 @@ public class FichaTecnica {
     private Long id;
 
     @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ingrediente_id", referencedColumnName = "id")
     private Ingredientes ingredienteId;
     private String perCapitaLiquido;
     private String fatorDeCorrecao;
     private String medidaCaseira;
-    private String CustoUnitArio;
+    private String custoUnitario;
     private String energiaKcal;
     private String energiaKj;
     private String proteina;
@@ -54,7 +55,7 @@ public class FichaTecnica {
         this.perCapitaLiquido = perCapitaLiquido;
         this.fatorDeCorrecao = fatorDeCorrecao;
         this.medidaCaseira = medidaCaseira;
-        CustoUnitArio = custoUnitArio;
+        this.custoUnitario = custoUnitArio;
         this.energiaKcal = energiaKcal;
         this.energiaKj = energiaKj;
         this.proteina = proteina;
@@ -124,12 +125,12 @@ public class FichaTecnica {
         this.medidaCaseira = medidaCaseira;
     }
 
-    public String getCustoUnitArio() {
-        return CustoUnitArio;
+    public String getCustoUnitario() {
+        return custoUnitario;
     }
 
-    public void setCustoUnitArio(String custoUnitArio) {
-        CustoUnitArio = custoUnitArio;
+    public void setCustoUnitario(String custoUnitario) {
+        this.custoUnitario = custoUnitario;
     }
 
     public String getEnergiaKcal() {
