@@ -28,7 +28,7 @@ public class IngretientesController {
     }
 
     @GetMapping("/ingredientes/{id}")
-    public ResponseEntity<Ingredientes> buscarIngredientePorId(@PathVariable @Validated Long id){
+    public ResponseEntity<Ingredientes> buscarIngredientePorId(@PathVariable @Validated Long id) throws Exception {
         Ingredientes ingredientes = ingredientesService.buscarIngredientesPorId(id);
 
         return ResponseEntity.ok(ingredientes);

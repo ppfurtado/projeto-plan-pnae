@@ -23,7 +23,7 @@ public class IngredientesServiceImpl implements IngredientesService {
     }
 
     @Override
-    public Ingredientes buscarIngredientesPorId(Long id) {
-        return ingredientesRepository.findById(id).orElseThrow();
+    public Ingredientes buscarIngredientesPorId(Long id) throws Exception {
+        return ingredientesRepository.findById(id).orElseThrow(() -> new Exception("Ingrediente não encontrado"));
     }
 }

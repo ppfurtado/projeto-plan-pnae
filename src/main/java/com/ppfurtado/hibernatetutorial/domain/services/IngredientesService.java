@@ -8,5 +8,5 @@ public interface IngredientesService {
 
     List<Ingredientes> buscarIngrediente();
 
-    Ingredientes buscarIngredientesPorId(Long id);
+    Ingredientes buscarIngredientesPorId(Long id) throws Exception;
 }
