@@ -1,14 +1,12 @@
 package com.ppfurtado.hibernatetutorial.domain.dtos;
 
-import com.ppfurtado.hibernatetutorial.domain.model.Ingredientes;
-
 public class FichaTecnicaRequest {
 
-    private Ingredientes ingredienteId;
+    private Long ingredienteId;
     private String perCapitaLiquido;
     private String fatorDeCorrecao;
     private String medidaCaseira;
-    private String CustoUnitArio;
+    private String custoUnitario;
     private String energiaKcal;
     private String energiaKj;
     private String proteina;
@@ -40,11 +38,11 @@ public class FichaTecnicaRequest {
     public FichaTecnicaRequest() {
     }
 
-    public Ingredientes getIngredienteId() {
+    public Long getIngredienteId() {
         return ingredienteId;
     }
 
-    public void setIngredienteId(Ingredientes ingredienteId) {
+    public void setIngredienteId(Long ingredienteId) {
         this.ingredienteId = ingredienteId;
     }
 
@@ -72,12 +70,12 @@ public class FichaTecnicaRequest {
         this.medidaCaseira = medidaCaseira;
     }
 
-    public String getCustoUnitArio() {
-        return CustoUnitArio;
+    public String getCustoUnitario() {
+        return custoUnitario;
     }
 
-    public void setCustoUnitArio(String custoUnitArio) {
-        CustoUnitArio = custoUnitArio;
+    public void setCustoUnitario(String custoUnitario) {
+        this.custoUnitario = custoUnitario;
     }
 
     public String getEnergiaKcal() {
