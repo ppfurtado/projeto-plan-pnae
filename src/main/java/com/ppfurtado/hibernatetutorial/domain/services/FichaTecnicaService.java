@@ -9,7 +9,7 @@ public interface FichaTecnicaService {
 
     List<FichaTecnica> findAll();
 
-    FichaTecnica findById(Long id);
+    FichaTecnica findById(Long id) throws Exception;
 
-    FichaTecnica save(FichaTecnicaRequest fichaTecnica);
+    FichaTecnica save(FichaTecnicaRequest fichaTecnica) throws Exception;
 }

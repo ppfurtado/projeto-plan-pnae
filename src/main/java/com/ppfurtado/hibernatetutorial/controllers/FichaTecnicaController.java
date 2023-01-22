@@ -5,13 +5,11 @@ import com.ppfurtado.hibernatetutorial.domain.model.FichaTecnica;
 import com.ppfurtado.hibernatetutorial.domain.services.FichaTecnicaService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RestController
 public class FichaTecnicaController {
 
     private final FichaTecnicaService fichaTecnicaService;
@@ -28,17 +26,17 @@ public class FichaTecnicaController {
     }
 
     @GetMapping("/fichas-tecnicas/{id}")
-    public ResponseEntity<FichaTecnica> buscarFichaTecnicaPorId(@PathVariable @Validated Long id){
+    public ResponseEntity<FichaTecnica> buscarFichaTecnicaPorId(@PathVariable @Validated Long id) throws Exception {
         FichaTecnica fichaTecnica = fichaTecnicaService.findById(id);
 
         return ResponseEntity.ok(fichaTecnica);
     }
 
-    @PostMapping("/fichas-tecnicas")
-    public ResponseEntity<FichaTecnicaRequest> salvar(@RequestBody FichaTecnicaRequest request){
+    @PostMapping("/fichas-tecnicas/criar")
+    public ResponseEntity<FichaTecnica> salvar(@RequestBody FichaTecnicaRequest request) throws Exception {
         FichaTecnica fichaTecnica = fichaTecnicaService.save(request);
 
-        return ResponseEntity.ok(request);
+        return ResponseEntity.ok(fichaTecnica);
     }
 
 }
