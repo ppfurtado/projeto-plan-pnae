@@ -39,4 +39,11 @@ public class FichaTecnicaController {
         return ResponseEntity.ok(fichaTecnica);
     }
 
+
+    @DeleteMapping("/fichas-tecnicas/{id}")
+    public ResponseEntity<FichaTecnica> deletar(@PathVariable Long id) throws Exception {
+        FichaTecnica fichaTecnica = fichaTecnicaService.delete(id);
+
+        return ResponseEntity.ok(fichaTecnica);
+    }
 }
