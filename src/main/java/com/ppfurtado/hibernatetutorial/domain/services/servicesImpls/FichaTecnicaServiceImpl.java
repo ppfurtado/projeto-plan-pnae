@@ -34,11 +34,11 @@ public class FichaTecnicaServiceImpl implements FichaTecnicaService {
     }
 
     @Override
-    public FichaTecnica save(FichaTecnicaRequest request) throws Exception {
-        Ingredientes ingrediente = ingredientesRepository.findById(request.getIngredienteId())
-                .orElseThrow(() -> new Exception("Ingrediente não encontrado"));
+    public FichaTecnica save(FichaTecnicaRequest request) {
+
+        List<Ingredientes> ingrediente = ingredientesRepository.findAllById(request.getIngredientes());
         FichaTecnica fichaTecnica = FichaTecnicaMapper.INSTANCE.toEntity(request);
-        fichaTecnica.setIngredienteId(ingrediente);
+        fichaTecnica.setIngredientes(ingrediente);
         return fichaTecnicaRepository.save(fichaTecnica);
     }
 
