@@ -1,8 +1,12 @@
 package com.ppfurtado.hibernatetutorial.domain.dtos;
 
+import com.ppfurtado.hibernatetutorial.domain.model.Ingredientes;
+
+import java.util.List;
+
 public class FichaTecnicaRequest {
 
-    private Long ingredienteId;
+    private List<Long> ingredientes;
     private String perCapitaLiquido;
     private String fatorDeCorrecao;
     private String medidaCaseira;
@@ -38,12 +42,12 @@ public class FichaTecnicaRequest {
     public FichaTecnicaRequest() {
     }
 
-    public Long getIngredienteId() {
-        return ingredienteId;
+    public List<Long> getIngredientes() {
+        return ingredientes;
     }
 
-    public void setIngredienteId(Long ingredienteId) {
-        this.ingredienteId = ingredienteId;
+    public void setIngredientes(List<Long> ingredientes) {
+        this.ingredientes = ingredientes;
     }
 
     public String getPerCapitaLiquido() {
