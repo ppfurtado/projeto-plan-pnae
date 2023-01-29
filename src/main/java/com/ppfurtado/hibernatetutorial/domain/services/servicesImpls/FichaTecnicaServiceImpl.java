@@ -41,4 +41,13 @@ public class FichaTecnicaServiceImpl implements FichaTecnicaService {
         fichaTecnica.setIngredienteId(ingrediente);
         return fichaTecnicaRepository.save(fichaTecnica);
     }
+
+    @Override
+    public FichaTecnica delete(Long id) throws Exception {
+        FichaTecnica fichaTecnica = findById(id);
+
+        fichaTecnicaRepository.delete(fichaTecnica);
+
+        return fichaTecnica;
+    }
 }

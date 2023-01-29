@@ -12,4 +12,6 @@ public interface FichaTecnicaService {
     FichaTecnica findById(Long id) throws Exception;
 
     FichaTecnica save(FichaTecnicaRequest fichaTecnica) throws Exception;
+
+    FichaTecnica delete(Long id) throws Exception;
 }
