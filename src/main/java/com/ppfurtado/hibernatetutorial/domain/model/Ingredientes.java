@@ -3,6 +3,7 @@ package com.ppfurtado.hibernatetutorial.domain.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -43,6 +44,15 @@ public class Ingredientes {
     private String vitaminac;
     private String criado;
     private String ultimaAtualizacao;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
+            CascadeType.REFRESH})
+    @JoinTable(
+            name = "fichas_ingredientes",
+            joinColumns = @JoinColumn(name = "ingredientes_id"),
+            inverseJoinColumns = @JoinColumn(name = "ficha_tecnica_id")
+    )
+    private List<FichaTecnica> fichaTecnicas;
 
     public Ingredientes() {
     }

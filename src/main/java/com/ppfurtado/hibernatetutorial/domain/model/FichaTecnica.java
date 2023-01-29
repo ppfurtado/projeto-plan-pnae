@@ -2,6 +2,7 @@ package com.ppfurtado.hibernatetutorial.domain.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -12,9 +13,14 @@ public class FichaTecnica {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ingrediente_id", referencedColumnName = "id")
-    private Ingredientes ingredienteId;
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
+                CascadeType.REFRESH})
+    @JoinTable(
+            name = "fichas_ingredientes",
+            joinColumns = @JoinColumn(name = "ficha_tecnica_id"),
+            inverseJoinColumns = @JoinColumn(name = "ingredientes_id")
+    )
+    private List<Ingredientes> ingredientes;
     private String perCapitaLiquido;
     private String fatorDeCorrecao;
     private String medidaCaseira;
@@ -50,8 +56,8 @@ public class FichaTecnica {
     public FichaTecnica() {
     }
 
-    public FichaTecnica(Ingredientes ingredienteId, String perCapitaLiquido, String fatorDeCorrecao, String medidaCaseira, String custoUnitArio, String energiaKcal, String energiaKj, String proteina, String lipideos, String colesterol, String carboidrato, String fibraAlimentar, String cinzas, String calcio, String magnesio, String manganes, String fosforo, String ferro, String sodio, String potassio, String cobre, String zinco, String retinol, String re, String rae, String tiamina, String riboflavina, String piridoxina, String niacina, String vitaminac, String criado, String ultimaAtualizacao) {
-        this.ingredienteId = ingredienteId;
+    public FichaTecnica(List<Ingredientes> ingredienteId, String perCapitaLiquido, String fatorDeCorrecao, String medidaCaseira, String custoUnitArio, String energiaKcal, String energiaKj, String proteina, String lipideos, String colesterol, String carboidrato, String fibraAlimentar, String cinzas, String calcio, String magnesio, String manganes, String fosforo, String ferro, String sodio, String potassio, String cobre, String zinco, String retinol, String re, String rae, String tiamina, String riboflavina, String piridoxina, String niacina, String vitaminac, String criado, String ultimaAtualizacao) {
+        this.ingredientes = ingredienteId;
         this.perCapitaLiquido = perCapitaLiquido;
         this.fatorDeCorrecao = fatorDeCorrecao;
         this.medidaCaseira = medidaCaseira;
@@ -93,12 +99,12 @@ public class FichaTecnica {
         this.id = id;
     }
 
-    public Ingredientes getIngredienteId() {
-        return ingredienteId;
+    public List<Ingredientes> getIngredientes() {
+        return ingredientes;
     }
 
-    public void setIngredienteId(Ingredientes ingredienteId) {
-        this.ingredienteId = ingredienteId;
+    public void setIngredientes(List<Ingredientes> ingredienteId) {
+        this.ingredientes = ingredienteId;
     }
 
     public String getPerCapitaLiquido() {
