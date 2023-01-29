@@ -13,10 +13,10 @@ public interface FichaTecnicaMapper {
 
     FichaTecnicaMapper INSTANCE = Mappers.getMapper(FichaTecnicaMapper.class);
 
-    @Mapping(target = "ingredienteId", source = "ingredienteId", qualifiedByName = "idToEntity" )
+    @Mapping(target = "ingredientes", source = "ingredientes", qualifiedByName = "idToEntity" )
     FichaTecnica toEntity(FichaTecnicaRequest fichaTecnicaRequest);
 
-    @Mapping(target = "ingredienteId", source = "ingredienteId", qualifiedByName = "entityToId" )
+    @Mapping(target = "ingredientes", source = "ingredientes", qualifiedByName = "entityToId" )
     FichaTecnicaRequest toRequest(FichaTecnica fichaTecnica);
 
     @Named("idToEntity")
