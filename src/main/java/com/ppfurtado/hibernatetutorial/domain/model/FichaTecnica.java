@@ -21,10 +21,10 @@ public class FichaTecnica {
             inverseJoinColumns = @JoinColumn(name = "ingredientes_id")
     )
     private List<Ingredientes> ingredientes;
-    private String perCapitaLiquido;
-    private String fatorDeCorrecao;
-    private String medidaCaseira;
-    private String custoUnitario;
+    private List<Double> perCapitaLiquido;
+    private List<Double> fatorDeCorrecao;
+    private List<String> medidaCaseira;
+    private List<Double> custoUnitario;
     private String energiaKcal;
     private String energiaKj;
     private String proteina;
@@ -56,12 +56,13 @@ public class FichaTecnica {
     public FichaTecnica() {
     }
 
-    public FichaTecnica(List<Ingredientes> ingredienteId, String perCapitaLiquido, String fatorDeCorrecao, String medidaCaseira, String custoUnitArio, String energiaKcal, String energiaKj, String proteina, String lipideos, String colesterol, String carboidrato, String fibraAlimentar, String cinzas, String calcio, String magnesio, String manganes, String fosforo, String ferro, String sodio, String potassio, String cobre, String zinco, String retinol, String re, String rae, String tiamina, String riboflavina, String piridoxina, String niacina, String vitaminac, String criado, String ultimaAtualizacao) {
-        this.ingredientes = ingredienteId;
+    public FichaTecnica(Long id, List<Ingredientes> ingredientes, List<Double> perCapitaLiquido, List<Double> fatorDeCorrecao, List<String> medidaCaseira, List<Double> custoUnitario, String energiaKcal, String energiaKj, String proteina, String lipideos, String colesterol, String carboidrato, String fibraAlimentar, String cinzas, String calcio, String magnesio, String manganes, String fosforo, String ferro, String sodio, String potassio, String cobre, String zinco, String retinol, String re, String rae, String tiamina, String riboflavina, String piridoxina, String niacina, String vitaminac, String criado, String ultimaAtualizacao) {
+        this.id = id;
+        this.ingredientes = ingredientes;
         this.perCapitaLiquido = perCapitaLiquido;
         this.fatorDeCorrecao = fatorDeCorrecao;
         this.medidaCaseira = medidaCaseira;
-        this.custoUnitario = custoUnitArio;
+        this.custoUnitario = custoUnitario;
         this.energiaKcal = energiaKcal;
         this.energiaKj = energiaKj;
         this.proteina = proteina;
@@ -103,39 +104,39 @@ public class FichaTecnica {
         return ingredientes;
     }
 
-    public void setIngredientes(List<Ingredientes> ingredienteId) {
-        this.ingredientes = ingredienteId;
+    public void setIngredientes(List<Ingredientes> ingredientes) {
+        this.ingredientes = ingredientes;
     }
 
-    public String getPerCapitaLiquido() {
+    public List<Double> getPerCapitaLiquido() {
         return perCapitaLiquido;
     }
 
-    public void setPerCapitaLiquido(String perCapitaLiquido) {
+    public void setPerCapitaLiquido(List<Double> perCapitaLiquido) {
         this.perCapitaLiquido = perCapitaLiquido;
     }
 
-    public String getFatorDeCorrecao() {
+    public List<Double> getFatorDeCorrecao() {
         return fatorDeCorrecao;
     }
 
-    public void setFatorDeCorrecao(String fatorDeCorrecao) {
+    public void setFatorDeCorrecao(List<Double> fatorDeCorrecao) {
         this.fatorDeCorrecao = fatorDeCorrecao;
     }
 
-    public String getMedidaCaseira() {
+    public List<String> getMedidaCaseira() {
         return medidaCaseira;
     }
 
-    public void setMedidaCaseira(String medidaCaseira) {
+    public void setMedidaCaseira(List<String> medidaCaseira) {
         this.medidaCaseira = medidaCaseira;
     }
 
-    public String getCustoUnitario() {
+    public List<Double> getCustoUnitario() {
         return custoUnitario;
     }
 
-    public void setCustoUnitario(String custoUnitario) {
+    public void setCustoUnitario(List<Double> custoUnitario) {
         this.custoUnitario = custoUnitario;
     }
 
