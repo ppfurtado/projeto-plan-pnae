@@ -37,6 +37,7 @@ public class FichaTecnicaServiceImpl implements FichaTecnicaService {
     public FichaTecnica save(FichaTecnicaRequest request) {
 
         List<Ingredientes> ingrediente = ingredientesRepository.findAllById(request.getIngredientes());
+        double energiaKcal = ingrediente.stream().mapToDouble(i -> Double.parseDouble(i.getEnergiaKcal().replace("," , "."))).sum();
         FichaTecnica fichaTecnica = FichaTecnicaMapper.INSTANCE.toEntity(request);
         fichaTecnica.setIngredientes(ingrediente);
         return fichaTecnicaRepository.save(fichaTecnica);
