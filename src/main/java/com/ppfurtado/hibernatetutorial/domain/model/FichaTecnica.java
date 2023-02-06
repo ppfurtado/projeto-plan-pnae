@@ -1,7 +1,16 @@
 package com.ppfurtado.hibernatetutorial.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonRawValue;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.persistence.*;
+import org.hibernate.annotations.Type;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -21,10 +30,22 @@ public class FichaTecnica {
             inverseJoinColumns = @JoinColumn(name = "ingredientes_id")
     )
     private List<Ingredientes> ingredientes;
-    private List<Double> perCapitaLiquido;
-    private List<Double> fatorDeCorrecao;
-    private List<String> medidaCaseira;
-    private List<Double> custoUnitario;
+
+    private String perCapitaLiquido;
+
+    private String fatorDeCorrecao;
+
+    private String medidaCaseira;
+
+    private String custoUnitario;
+
+    private transient List<Double> perCapitaLiquidoToString;
+
+    private transient List<Double> fatorDeCorrecaoToString;
+
+    private transient List<Double> medidaCaseiraToString;
+
+    private transient List<Double> custoUnitarioToString;
     private String energiaKcal;
     private String energiaKj;
     private String proteina;
@@ -108,36 +129,44 @@ public class FichaTecnica {
         this.ingredientes = ingredientes;
     }
 
-    public List<Double> getPerCapitaLiquido() {
-        return perCapitaLiquido;
+    @JsonIgnore
+    public List<Double> getPerCapitaLiquidoToString() {
+        return perCapitaLiquidoToString;
     }
 
-    public void setPerCapitaLiquido(List<Double> perCapitaLiquido) {
-        this.perCapitaLiquido = perCapitaLiquido;
+    public void setPerCapitaLiquidoToString(List<Double> perCapitaLiquidoToString) throws JsonProcessingException {
+        this.perCapitaLiquidoToString = perCapitaLiquidoToString;
+        this.perCapitaLiquido = new ObjectMapper().writeValueAsString(perCapitaLiquidoToString);
     }
 
-    public List<Double> getFatorDeCorrecao() {
-        return fatorDeCorrecao;
+    @JsonIgnore
+    public List<Double> getFatorDeCorrecaoToString() {
+        return fatorDeCorrecaoToString;
     }
 
-    public void setFatorDeCorrecao(List<Double> fatorDeCorrecao) {
-        this.fatorDeCorrecao = fatorDeCorrecao;
+    public void setFatorDeCorrecaoToString(List<Double> fatorDeCorrecaoToString) throws JsonProcessingException {
+        this.fatorDeCorrecaoToString = fatorDeCorrecaoToString;
+        this.fatorDeCorrecao = new ObjectMapper().writeValueAsString(fatorDeCorrecaoToString);
     }
 
-    public List<String> getMedidaCaseira() {
-        return medidaCaseira;
+    @JsonIgnore
+    public List<Double> getMedidaCaseiraToString() {
+        return medidaCaseiraToString;
     }
 
-    public void setMedidaCaseira(List<String> medidaCaseira) {
-        this.medidaCaseira = medidaCaseira;
+    public void setMedidaCaseiraToString(List<Double> medidaCaseiraToString) throws JsonProcessingException {
+        this.medidaCaseiraToString = medidaCaseiraToString;
+        this.medidaCaseira = new ObjectMapper().writeValueAsString(medidaCaseiraToString);
     }
 
-    public List<Double> getCustoUnitario() {
-        return custoUnitario;
+    @JsonIgnore
+    public List<Double> getCustoUnitarioToString() {
+        return custoUnitarioToString;
     }
 
-    public void setCustoUnitario(List<Double> custoUnitario) {
-        this.custoUnitario = custoUnitario;
+    public void setCustoUnitarioToString(List<Double> custoUnitarioToString) throws JsonProcessingException {
+        this.custoUnitarioToString = custoUnitarioToString;
+        this.custoUnitario = new ObjectMapper().writeValueAsString(custoUnitarioToString);
     }
 
     public String getEnergiaKcal() {
