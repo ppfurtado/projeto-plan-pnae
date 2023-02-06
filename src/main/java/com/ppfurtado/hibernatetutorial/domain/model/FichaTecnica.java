@@ -77,42 +77,6 @@ public class FichaTecnica {
     public FichaTecnica() {
     }
 
-    public FichaTecnica(Long id, List<Ingredientes> ingredientes, List<Double> perCapitaLiquido, List<Double> fatorDeCorrecao, List<String> medidaCaseira, List<Double> custoUnitario, String energiaKcal, String energiaKj, String proteina, String lipideos, String colesterol, String carboidrato, String fibraAlimentar, String cinzas, String calcio, String magnesio, String manganes, String fosforo, String ferro, String sodio, String potassio, String cobre, String zinco, String retinol, String re, String rae, String tiamina, String riboflavina, String piridoxina, String niacina, String vitaminac, String criado, String ultimaAtualizacao) {
-        this.id = id;
-        this.ingredientes = ingredientes;
-        this.perCapitaLiquido = perCapitaLiquido;
-        this.fatorDeCorrecao = fatorDeCorrecao;
-        this.medidaCaseira = medidaCaseira;
-        this.custoUnitario = custoUnitario;
-        this.energiaKcal = energiaKcal;
-        this.energiaKj = energiaKj;
-        this.proteina = proteina;
-        this.lipideos = lipideos;
-        this.colesterol = colesterol;
-        this.carboidrato = carboidrato;
-        this.fibraAlimentar = fibraAlimentar;
-        this.cinzas = cinzas;
-        this.calcio = calcio;
-        this.magnesio = magnesio;
-        this.manganes = manganes;
-        this.fosforo = fosforo;
-        this.ferro = ferro;
-        this.sodio = sodio;
-        this.potassio = potassio;
-        this.cobre = cobre;
-        this.zinco = zinco;
-        this.retinol = retinol;
-        this.re = re;
-        this.rae = rae;
-        this.tiamina = tiamina;
-        this.riboflavina = riboflavina;
-        this.piridoxina = piridoxina;
-        this.niacina = niacina;
-        this.vitaminac = vitaminac;
-        this.criado = criado;
-        this.ultimaAtualizacao = ultimaAtualizacao;
-    }
-
     public Long getId() {
         return id;
     }
@@ -396,5 +360,17 @@ public class FichaTecnica {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+
+    @PrePersist
+    public void preAgendar() throws UnknownHostException {
+        this.setCriado(LocalDateTime.now().toString());
+        this.setUltimaAtualizacao(LocalDateTime.now().toString());
+    }
+
+    @PreUpdate
+    public void atualiza() throws UnknownHostException {
+        this.setUltimaAtualizacao(LocalDateTime.now().toString());
     }
 }
