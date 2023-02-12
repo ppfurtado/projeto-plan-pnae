@@ -76,6 +76,10 @@ public class FichaTecnica {
         return perCapitaLiquidoToString;
     }
 
+    public String getPerCapitaLiquido() {
+        return perCapitaLiquido;
+    }
+
     public void setPerCapitaLiquidoToString(List<Double> perCapitaLiquidoToString) throws JsonProcessingException {
         this.perCapitaLiquidoToString = perCapitaLiquidoToString;
         this.perCapitaLiquido = new ObjectMapper().writeValueAsString(perCapitaLiquidoToString);
@@ -84,6 +88,10 @@ public class FichaTecnica {
     @JsonIgnore
     public List<Double> getFatorDeCorrecaoToString() {
         return fatorDeCorrecaoToString;
+    }
+
+    public String getFatorDeCorrecao() {
+        return fatorDeCorrecao;
     }
 
     public void setFatorDeCorrecaoToString(List<Double> fatorDeCorrecaoToString) throws JsonProcessingException {
@@ -96,6 +104,10 @@ public class FichaTecnica {
         return medidaCaseiraToString;
     }
 
+    public String getMedidaCaseira() {
+        return medidaCaseira;
+    }
+
     public void setMedidaCaseiraToString(List<Double> medidaCaseiraToString) throws JsonProcessingException {
         this.medidaCaseiraToString = medidaCaseiraToString;
         this.medidaCaseira = new ObjectMapper().writeValueAsString(medidaCaseiraToString);
@@ -104,6 +116,10 @@ public class FichaTecnica {
     @JsonIgnore
     public List<Double> getCustoUnitarioToString() {
         return custoUnitarioToString;
+    }
+
+    public String getCustoUnitario() {
+        return custoUnitario;
     }
 
     public void setCustoUnitarioToString(List<Double> custoUnitarioToString) throws JsonProcessingException {
