@@ -1,7 +1,9 @@
 package com.ppfurtado.hibernatetutorial.domain.services.servicesImpls;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.ppfurtado.hibernatetutorial.domain.dtos.FichaTecnicaRequest;
 import com.ppfurtado.hibernatetutorial.domain.mappers.FichaTecnicaMapper;
+import com.ppfurtado.hibernatetutorial.domain.model.ComposicaoAlimento;
 import com.ppfurtado.hibernatetutorial.domain.model.FichaTecnica;
 import com.ppfurtado.hibernatetutorial.domain.model.Ingredientes;
 import com.ppfurtado.hibernatetutorial.domain.repositories.FichaTecnicaRepository;
@@ -34,12 +36,21 @@ public class FichaTecnicaServiceImpl implements FichaTecnicaService {
     }
 
     @Override
-    public FichaTecnica save(FichaTecnicaRequest request) {
+    public FichaTecnica save(FichaTecnicaRequest request) throws JsonProcessingException {
 
         List<Ingredientes> ingrediente = ingredientesRepository.findAllById(request.getIngredientes());
-        double energiaKcal = ingrediente.stream().mapToDouble(i -> Double.parseDouble(i.getEnergiaKcal().replace("," , "."))).sum();
+
+        ComposicaoAlimento composicaoAlimento = new ComposicaoAlimento();
+
         FichaTecnica fichaTecnica = FichaTecnicaMapper.INSTANCE.toEntity(request);
+
+        fichaTecnica.setPerCapitaLiquidoToString(request.getCustoUnitario());
+        fichaTecnica.setFatorDeCorrecaoToString(request.getCustoUnitario());
+        fichaTecnica.setMedidaCaseiraToString(request.getCustoUnitario());
+        fichaTecnica.setCustoUnitarioToString(request.getCustoUnitario());
+
         fichaTecnica.setIngredientes(ingrediente);
+        fichaTecnica.setComposicaoAlimento(composicaoAlimento.soma(ingrediente));
         return fichaTecnicaRepository.save(fichaTecnica);
     }
 
