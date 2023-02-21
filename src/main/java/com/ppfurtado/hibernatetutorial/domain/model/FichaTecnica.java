@@ -31,6 +31,8 @@ public class FichaTecnica {
     )
     private List<Ingredientes> ingredientes;
 
+    private String perCapitaBruto;
+
     private String perCapitaLiquido;
 
     private String fatorDeCorrecao;
@@ -38,6 +40,9 @@ public class FichaTecnica {
     private String medidaCaseira;
 
     private String custoUnitario;
+
+
+    private transient List<Double> perCapitaBrutoToString;
 
     private transient List<Double> perCapitaLiquidoToString;
 
@@ -69,6 +74,20 @@ public class FichaTecnica {
 
     public void setIngredientes(List<Ingredientes> ingredientes) {
         this.ingredientes = ingredientes;
+    }
+
+    @JsonIgnore
+    public List<Double> getPerCapitaBrutoToString() {
+        return perCapitaBrutoToString;
+    }
+
+    public String getPerCapitaBruto() {
+        return perCapitaBruto;
+    }
+
+    public void setPerCapitaBrutoToString(List<Double> perCapitabrutoToString) throws JsonProcessingException {
+        this.perCapitaBrutoToString = perCapitaBrutoToString;
+        this.perCapitaBruto = new ObjectMapper().writeValueAsString(perCapitaBrutoToString);
     }
 
     @JsonIgnore
