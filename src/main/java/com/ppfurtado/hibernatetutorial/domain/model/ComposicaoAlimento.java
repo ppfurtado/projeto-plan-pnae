@@ -7,6 +7,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @Embeddable
 public class ComposicaoAlimento {
@@ -240,10 +241,12 @@ public class ComposicaoAlimento {
         this.vitaminac = vitaminac;
     }
 
-    public ComposicaoAlimento soma(List<Ingredientes> ingredientes){
+    public ComposicaoAlimento soma(List<Ingredientes> ingredientes, List<Double> perCapitaLiquido){
 
         List<ComposicaoAlimento> composicaoAlimentos = new ArrayList<>();
         composicaoAlimentos = ingredientes.stream().map(i -> i.getComposicaoAlimento()).collect(Collectors.toList());
+        IntStream.range(0, composicaoAlimentos.size())
+                .mapToObj( i -> multiplicarPorPerCapitaLiquida(this, perCapitaLiquido.get(i)));
 
         return composicaoAlimentos.stream()
                 .reduce(new ComposicaoAlimento(), (acumulador, atual) -> {
@@ -274,6 +277,38 @@ public class ComposicaoAlimento {
                     acumulador.setVitaminac(Double.toString(Double.parseDouble(acumulador.vitaminac == null ? "0" : acumulador.getVitaminac().replace("," , ".")) + Double.parseDouble(atual.getVitaminac().replace("," , "."))));
                     return acumulador;
                 });
+    }
+
+    public ComposicaoAlimento multiplicarPorPerCapitaLiquida(ComposicaoAlimento composicaoAlimento, double valor) {
+        // Multiplica cada propriedade pelo valor recebido como parâmetro
+
+        composicaoAlimento.setEnergiaKcal(Double.toString(Double.parseDouble(this.energiaKcal == null? "0" : this.getEnergiaKj().replace("," , "."))*valor));
+        composicaoAlimento.setEnergiaKj(Double.toString(Double.parseDouble(this.energiaKj == null ? "0" : this.getEnergiaKj().replace("," , "."))*valor));
+        composicaoAlimento.setProteina(Double.toString(Double.parseDouble(this.proteina == null ? "0" : this.getProteina().replace("," , "."))*valor));
+        composicaoAlimento.setLipideos(Double.toString(Double.parseDouble(this.lipideos == null ? "0" : this.getLipideos().replace("," , "."))*valor));
+        composicaoAlimento.setColesterol(Double.toString(Double.parseDouble(this.colesterol == null ? "0" : this.getColesterol().replace("," , "."))*valor));
+        composicaoAlimento.setCarboidrato(Double.toString(Double.parseDouble(this.carboidrato == null ? "0" : this.getCarboidrato().replace("," , "."))*valor));
+        composicaoAlimento.setFibraAlimentar(Double.toString(Double.parseDouble(this.fibraAlimentar == null ? "0" : this.getFibraAlimentar().replace("," , "."))*valor));
+        composicaoAlimento.setCinzas(Double.toString(Double.parseDouble(this.cinzas == null ? "0" : this.getCinzas().replace("," , "."))*valor));
+        composicaoAlimento.setCalcio(Double.toString(Double.parseDouble(this.calcio == null ? "0" : this.getCalcio().replace("," , "."))*valor));
+        composicaoAlimento.setMagnesio(Double.toString(Double.parseDouble(this.magnesio == null ? "0" : this.getMagnesio().replace("," , "."))*valor));
+        composicaoAlimento.setManganes(Double.toString(Double.parseDouble(this.manganes == null ? "0" : this.getManganes().replace("," , "."))*valor));
+        composicaoAlimento.setFosforo(Double.toString(Double.parseDouble(this.fosforo == null ? "0" : this.getFosforo().replace("," , "."))*valor));
+        composicaoAlimento.setFerro(Double.toString(Double.parseDouble(this.ferro == null ? "0" : this.getFerro().replace("," , "."))*valor));
+        composicaoAlimento.setSodio(Double.toString(Double.parseDouble(this.sodio == null ? "0" : this.getSodio().replace("," , "."))*valor));
+        composicaoAlimento.setPotassio(Double.toString(Double.parseDouble(this.potassio == null ? "0" : this.getPotassio().replace("," , "."))*valor));
+        composicaoAlimento.setCobre(Double.toString(Double.parseDouble(this.cobre == null ? "0" : this.getCobre().replace("," , "."))*valor));
+        composicaoAlimento.setZinco(Double.toString(Double.parseDouble(this.zinco == null ? "0" : this.getZinco().replace("," , "."))*valor));
+        composicaoAlimento.setRetinol(Double.toString(Double.parseDouble(this.retinol == null ? "0" : this.getRetinol().replace("," , "."))*valor));
+        composicaoAlimento.setRe(Double.toString(Double.parseDouble(this.re == null ? "0" : this.getRe().replace("," , "."))*valor));
+        composicaoAlimento.setRae(Double.toString(Double.parseDouble(this.rae == null ? "0" : this.getRae().replace("," , "."))*valor));
+        composicaoAlimento.setTiamina(Double.toString(Double.parseDouble(this.tiamina == null ? "0" : this.getTiamina().replace("," , "."))*valor));
+        composicaoAlimento.setRiboflavina(Double.toString(Double.parseDouble(this.riboflavina == null ? "0" : this.getRiboflavina().replace("," , "."))*valor));
+        composicaoAlimento.setPiridoxina(Double.toString(Double.parseDouble(this.piridoxina == null ? "0" : this.getPiridoxina().replace("," , "."))*valor));
+        composicaoAlimento.setNiacina(Double.toString(Double.parseDouble(this.niacina == null ? "0" : this.getNiacina().replace("," , "."))*valor));
+        composicaoAlimento.setVitaminac(Double.toString(Double.parseDouble(this.vitaminac == null ? "0" : this.getVitaminac().replace("," , "."))*valor));
+
+        return composicaoAlimento;
     }
 
 }
