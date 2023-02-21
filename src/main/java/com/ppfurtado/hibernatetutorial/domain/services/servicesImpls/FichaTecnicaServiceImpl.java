@@ -44,13 +44,14 @@ public class FichaTecnicaServiceImpl implements FichaTecnicaService {
 
         FichaTecnica fichaTecnica = FichaTecnicaMapper.INSTANCE.toEntity(request);
 
-        fichaTecnica.setPerCapitaLiquidoToString(request.getCustoUnitario());
+        fichaTecnica.setPerCapitaBrutoToString(request.getPerCapitaBruto());
+        fichaTecnica.setPerCapitaLiquidoToString(request.getPerCapitaLiquido());
         fichaTecnica.setFatorDeCorrecaoToString(request.getCustoUnitario());
         fichaTecnica.setMedidaCaseiraToString(request.getCustoUnitario());
         fichaTecnica.setCustoUnitarioToString(request.getCustoUnitario());
 
         fichaTecnica.setIngredientes(ingrediente);
-        fichaTecnica.setComposicaoAlimento(composicaoAlimento.soma(ingrediente));
+        fichaTecnica.setComposicaoAlimento(composicaoAlimento.soma(ingrediente, request.getPerCapitaLiquido()));
         return fichaTecnicaRepository.save(fichaTecnica);
     }
 
