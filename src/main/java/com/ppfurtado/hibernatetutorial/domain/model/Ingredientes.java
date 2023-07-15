@@ -21,8 +21,7 @@ public class Ingredientes {
     private String criado;
     private String ultimaAtualizacao;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
-            CascadeType.REFRESH})
+    @ManyToMany
     @JoinTable(
             name = "fichas_ingredientes",
             joinColumns = @JoinColumn(name = "ingredientes_id"),

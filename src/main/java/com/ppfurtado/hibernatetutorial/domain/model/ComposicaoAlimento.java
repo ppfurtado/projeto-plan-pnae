@@ -5,6 +5,7 @@ import jakarta.persistence.Embeddable;
 
 import java.util.List;
 
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @Embeddable
@@ -37,6 +38,34 @@ public class ComposicaoAlimento {
     protected String vitaminac;
 
     public ComposicaoAlimento() {
+    }
+
+    public ComposicaoAlimento(ComposicaoAlimento composicaoAlimento) {
+        this.energiaKcal = composicaoAlimento.energiaKcal;
+        this.energiaKj = composicaoAlimento.energiaKj;
+        this.proteina = composicaoAlimento.proteina;
+        this.lipideos = composicaoAlimento.lipideos;
+        this.colesterol = composicaoAlimento.colesterol;
+        this.carboidrato = composicaoAlimento.carboidrato;
+        this.fibraAlimentar = composicaoAlimento.fibraAlimentar;
+        this.cinzas = composicaoAlimento.cinzas;
+        this.calcio = composicaoAlimento.calcio;
+        this.magnesio = composicaoAlimento.magnesio;
+        this.manganes = composicaoAlimento.manganes;
+        this.fosforo = composicaoAlimento.fosforo;
+        this.ferro = composicaoAlimento.ferro;
+        this.sodio = composicaoAlimento.sodio;
+        this.potassio = composicaoAlimento.potassio;
+        this.cobre = composicaoAlimento.cobre;
+        this.zinco = composicaoAlimento.zinco;
+        this.retinol = composicaoAlimento.retinol;
+        this.re = composicaoAlimento.re;
+        this.rae = composicaoAlimento.rae;
+        this.tiamina = composicaoAlimento.tiamina;
+        this.riboflavina = composicaoAlimento.riboflavina;
+        this.piridoxina = composicaoAlimento.piridoxina;
+        this.niacina = composicaoAlimento.niacina;
+        this.vitaminac = composicaoAlimento.vitaminac;
     }
 
     public String getEnergiaKcal() {
@@ -241,15 +270,17 @@ public class ComposicaoAlimento {
 
     public ComposicaoAlimento soma(List<Ingredientes> ingredientes, List<Double> perCapitaLiquido){
 
-        List<ComposicaoAlimento> composicaoAlimentos;
-        composicaoAlimentos = ingredientes.stream().map(Ingredientes::getComposicaoAlimento).toList();
+        List<ComposicaoAlimento> composicaoAlimentos = ingredientes.stream()
+                .map(i -> new ComposicaoAlimento(i.getComposicaoAlimento())).toList();
+
         List<ComposicaoAlimento> finalComposicaoAlimentos = composicaoAlimentos;
+
         composicaoAlimentos = IntStream.range(0, composicaoAlimentos.size())
                 .mapToObj( i -> multiplicarPorPerCapitaLiquida(finalComposicaoAlimentos.get(i), perCapitaLiquido.get(i))).toList();
 
         return composicaoAlimentos.stream()
                 .reduce(new ComposicaoAlimento(), (acumulador, atual) -> {
-                    acumulador.setEnergiaKcal(Double.toString(Double.parseDouble(acumulador.energiaKcal == null? "0" : acumulador.getEnergiaKj().replace("," , ".")) + Double.parseDouble(atual.getEnergiaKj().replace("," , "."))));
+                    acumulador.setEnergiaKcal(Double.toString(Double.parseDouble(acumulador.energiaKcal == null? "0" : acumulador.getEnergiaKcal().replace("," , ".")) + Double.parseDouble(atual.getEnergiaKcal().replace("," , "."))));
                     acumulador.setEnergiaKj(Double.toString(Double.parseDouble(acumulador.energiaKj == null ? "0" : acumulador.getEnergiaKj().replace("," , ".")) + Double.parseDouble(atual.getEnergiaKj().replace("," , "."))));
                     acumulador.setProteina(Double.toString(Double.parseDouble(acumulador.proteina == null ? "0" : acumulador.getProteina().replace("," , ".")) + Double.parseDouble(atual.getProteina().replace("," , "."))));
                     acumulador.setLipideos(Double.toString(Double.parseDouble(acumulador.lipideos == null ? "0" : acumulador.getLipideos().replace("," , ".")) + Double.parseDouble(atual.getLipideos().replace("," , "."))));

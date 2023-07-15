@@ -18,15 +18,14 @@ import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 
 @Entity
-@Table(name = "ficha_tecnica")
+@Table(name = "ficha_tecnica", schema = "plan_pnae")
 public class FichaTecnica {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
-                CascadeType.REFRESH})
+    @ManyToMany
     @JoinTable(
             name = "fichas_ingredientes",
             joinColumns = @JoinColumn(name = "ficha_tecnica_id"),
