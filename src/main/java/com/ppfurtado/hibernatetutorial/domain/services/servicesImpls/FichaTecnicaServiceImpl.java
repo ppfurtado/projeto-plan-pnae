@@ -40,18 +40,19 @@ public class FichaTecnicaServiceImpl implements FichaTecnicaService {
 
         List<Ingredientes> ingrediente = ingredientesRepository.findAllById(request.getIngredientes());
 
-        ComposicaoAlimento composicaoAlimento = new ComposicaoAlimento();
+        ComposicaoAlimento composicaoAlimento = new ComposicaoAlimento().soma(ingrediente, request.getPerCapitaLiquido());
 
         FichaTecnica fichaTecnica = FichaTecnicaMapper.INSTANCE.toEntity(request);
 
         fichaTecnica.setPerCapitaBrutoToString(request.getPerCapitaBruto());
         fichaTecnica.setPerCapitaLiquidoToString(request.getPerCapitaLiquido());
-        fichaTecnica.setFatorDeCorrecaoToString(request.getCustoUnitario());
-        fichaTecnica.setMedidaCaseiraToString(request.getCustoUnitario());
+        fichaTecnica.setFatorDeCorrecaoToString(request.getPerCapitaBruto(), request.getPerCapitaLiquido());
+        fichaTecnica.setMedidaCaseiraToString(request.getMedidaCaseira());
         fichaTecnica.setCustoUnitarioToString(request.getCustoUnitario());
 
         fichaTecnica.setIngredientes(ingrediente);
-        fichaTecnica.setComposicaoAlimento(composicaoAlimento.soma(ingrediente, request.getPerCapitaLiquido()));
+
+        fichaTecnica.setComposicaoAlimento(composicaoAlimento);
         return fichaTecnicaRepository.save(fichaTecnica);
     }
 

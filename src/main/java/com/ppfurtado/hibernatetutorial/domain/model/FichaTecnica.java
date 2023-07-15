@@ -13,6 +13,9 @@ import java.net.UnknownHostException;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
+import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
 
 @Entity
 @Table(name = "ficha_tecnica")
@@ -48,7 +51,7 @@ public class FichaTecnica {
 
     private transient List<Double> fatorDeCorrecaoToString;
 
-    private transient List<Double> medidaCaseiraToString;
+    private transient List<String> medidaCaseiraToString;
 
     private transient List<Double> custoUnitarioToString;
 
@@ -85,7 +88,7 @@ public class FichaTecnica {
         return perCapitaBruto;
     }
 
-    public void setPerCapitaBrutoToString(List<Double> perCapitabrutoToString) throws JsonProcessingException {
+    public void setPerCapitaBrutoToString(List<Double> perCapitaBrutoToString) throws JsonProcessingException {
         this.perCapitaBrutoToString = perCapitaBrutoToString;
         this.perCapitaBruto = new ObjectMapper().writeValueAsString(perCapitaBrutoToString);
     }
@@ -113,13 +116,18 @@ public class FichaTecnica {
         return fatorDeCorrecao;
     }
 
-    public void setFatorDeCorrecaoToString(List<Double> fatorDeCorrecaoToString) throws JsonProcessingException {
+    public void setFatorDeCorrecaoToString(List<Double> perCapitabruto, List<Double> perCapitaLiquido) throws JsonProcessingException {
+
+        List<Double> resultado = IntStream.range(0, perCapitabruto.size())
+                .mapToDouble(i -> perCapitabruto.get(i) / perCapitaLiquido.get(i))
+                .boxed().toList();
+
         this.fatorDeCorrecaoToString = fatorDeCorrecaoToString;
-        this.fatorDeCorrecao = new ObjectMapper().writeValueAsString(fatorDeCorrecaoToString);
+        this.fatorDeCorrecao = new ObjectMapper().writeValueAsString(resultado);
     }
 
     @JsonIgnore
-    public List<Double> getMedidaCaseiraToString() {
+    public List<String> getMedidaCaseiraToString() {
         return medidaCaseiraToString;
     }
 
@@ -127,7 +135,7 @@ public class FichaTecnica {
         return medidaCaseira;
     }
 
-    public void setMedidaCaseiraToString(List<Double> medidaCaseiraToString) throws JsonProcessingException {
+    public void setMedidaCaseiraToString(List<String> medidaCaseiraToString) throws JsonProcessingException {
         this.medidaCaseiraToString = medidaCaseiraToString;
         this.medidaCaseira = new ObjectMapper().writeValueAsString(medidaCaseiraToString);
     }
