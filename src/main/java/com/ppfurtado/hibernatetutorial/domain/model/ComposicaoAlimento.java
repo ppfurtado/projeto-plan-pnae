@@ -2,10 +2,7 @@ package com.ppfurtado.hibernatetutorial.domain.model;
 
 import jakarta.persistence.Embeddable;
 
-
 import java.util.List;
-
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @Embeddable

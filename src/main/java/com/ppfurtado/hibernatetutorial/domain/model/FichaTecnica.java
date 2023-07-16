@@ -1,24 +1,18 @@
 package com.ppfurtado.hibernatetutorial.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonRawValue;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.persistence.*;
-import org.hibernate.annotations.Type;
 
-import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
-import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 
 @Entity
-@Table(name = "ficha_tecnica", schema = "plan_pnae")
+@Table(name = "ficha_tecnica", schema = "planpnae")
 public class FichaTecnica {
 
     @Id
