@@ -49,6 +49,7 @@ public class FichaTecnicaServiceImpl implements FichaTecnicaService {
         fichaTecnica.setFatorDeCorrecaoToString(request.getPerCapitaBruto(), request.getPerCapitaLiquido());
         fichaTecnica.setMedidaCaseiraToString(request.getMedidaCaseira());
         fichaTecnica.setCustoUnitarioToString(request.getCustoUnitario());
+        fichaTecnica.setFatorDeCoccao(request.getPerCapitaLiquido());
 
         fichaTecnica.setIngredientes(ingrediente);
 

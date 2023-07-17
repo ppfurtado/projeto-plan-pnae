@@ -33,9 +33,13 @@ public class FichaTecnica {
 
     private String fatorDeCorrecao;
 
+    private String fatorDeCoccao;
+
     private String medidaCaseira;
 
     private String custoUnitario;
+
+    private String modoPreparo;
 
 
     private transient List<Double> perCapitaBrutoToString;
@@ -119,6 +123,15 @@ public class FichaTecnica {
         this.fatorDeCorrecao = new ObjectMapper().writeValueAsString(resultado);
     }
 
+    public String getFatorDeCoccao() {
+        return fatorDeCoccao;
+    }
+
+    public void setFatorDeCoccao(List<Double> perCapitaLiquido) throws JsonProcessingException {
+        Double resultado = perCapitaLiquido.stream().reduce(0.0,Double::sum);
+        this.fatorDeCoccao = new ObjectMapper().writeValueAsString(resultado);
+    }
+
     @JsonIgnore
     public List<String> getMedidaCaseiraToString() {
         return medidaCaseiraToString;
@@ -145,6 +158,14 @@ public class FichaTecnica {
     public void setCustoUnitarioToString(List<Double> custoUnitarioToString) throws JsonProcessingException {
         this.custoUnitarioToString = custoUnitarioToString;
         this.custoUnitario = new ObjectMapper().writeValueAsString(custoUnitarioToString);
+    }
+
+    public String getModoPreparo() {
+        return modoPreparo;
+    }
+
+    public void setModoPreparo(String modoPreparo) {
+        this.modoPreparo = modoPreparo;
     }
 
     public ComposicaoAlimento getComposicaoAlimento() {
