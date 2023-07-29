@@ -129,7 +129,7 @@ public class FichaTecnica {
 
     public void setFatorDeCoccao(List<Double> perCapitaLiquido) throws JsonProcessingException {
         Double resultado = perCapitaLiquido.stream().reduce(0.0,Double::sum);
-        this.fatorDeCoccao = new ObjectMapper().writeValueAsString(resultado);
+        this.fatorDeCoccao = new ObjectMapper().writeValueAsString(100.0/resultado);
     }
 
     @JsonIgnore
