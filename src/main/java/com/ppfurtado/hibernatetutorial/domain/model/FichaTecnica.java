@@ -21,9 +21,9 @@ public class FichaTecnica {
 
     @ManyToMany
     @JoinTable(
-            name = "fichas_ingredientes",
-            joinColumns = @JoinColumn(name = "ficha_tecnica_id"),
-            inverseJoinColumns = @JoinColumn(name = "ingredientes_id")
+            name = "technical_data_sheet_foods",
+            joinColumns = @JoinColumn(name = "technicalDataSheetId"),
+            inverseJoinColumns = @JoinColumn(name = "foodId")
     )
     private List<Ingredientes> ingredientes;
 

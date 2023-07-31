@@ -1,23 +1,25 @@
 package com.ppfurtado.hibernatetutorial.domain.model;
 
-
 import jakarta.persistence.*;
 
 import java.util.Objects;
 
-@Entity
-@Table(name = "foods", schema = "planpnae")
-public class Ingredientes {
+@Entity()
+@Table(name = "categories", schema = "planpnae")
+public class Categoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "name")
     private String nome;
-    @OneToOne
-    private Categoria categoriaId;
 
-    public Ingredientes() {
+    public Categoria() {
+    }
+
+    public Categoria(Long id, String nome) {
+        this.id = id;
+        this.nome = nome;
     }
 
     public Long getId() {
@@ -36,24 +38,21 @@ public class Ingredientes {
         this.nome = nome;
     }
 
-    public Categoria getCategoriaId() {
-        return categoriaId;
-    }
-
-    public void setCategoriaId(Categoria categoriaId) {
-        this.categoriaId = categoriaId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Ingredientes that = (Ingredientes) o;
-        return Objects.equals(id, that.id);
+
+        Categoria categoria = (Categoria) o;
+
+        if (!id.equals(categoria.id)) return false;
+        return Objects.equals(nome, categoria.nome);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        int result = id.hashCode();
+        result = 31 * result + (nome != null ? nome.hashCode() : 0);
+        return result;
     }
 }
