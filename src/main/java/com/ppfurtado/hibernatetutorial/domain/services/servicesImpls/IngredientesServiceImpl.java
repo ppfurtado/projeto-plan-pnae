@@ -26,4 +26,10 @@ public class IngredientesServiceImpl implements IngredientesService {
     public Ingredientes buscarIngredientesPorId(Long id) throws Exception {
         return ingredientesRepository.findById(id).orElseThrow(() -> new Exception("Ingrediente não encontrado"));
     }
+
+    @Override
+    public List<Ingredientes> buscarIngredientesPorNome(String nome) {
+        return ingredientesRepository.findAllByNomeContaining(nome);
+    }
+
 }

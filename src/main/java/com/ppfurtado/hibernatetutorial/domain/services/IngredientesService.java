@@ -9,4 +9,7 @@ public interface IngredientesService {
     List<Ingredientes> buscarIngrediente();
 
     Ingredientes buscarIngredientesPorId(Long id) throws Exception;
+
+    List<Ingredientes> buscarIngredientesPorNome(String nome);
+
 }
