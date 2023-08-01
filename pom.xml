@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.ppfurtado</groupId>
-    <artifactId>hibernate-tutorial</artifactId>
+    <artifactId>plan-pnae</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>hibernate-tutorial</name>
     <description>hibernate-tutorial</description>
