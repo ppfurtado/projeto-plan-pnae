@@ -38,4 +38,22 @@ public class CardapioIngredientesId implements Serializable {
     public void setIngredienteID(Long ingredienteID) {
         this.ingredienteID = ingredienteID;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        CardapioIngredientesId that = (CardapioIngredientesId) o;
+
+        if (!cardapioId.equals(that.cardapioId)) return false;
+        return ingredienteID.equals(that.ingredienteID);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = cardapioId.hashCode();
+        result = 31 * result + ingredienteID.hashCode();
+        return result;
+    }
 }

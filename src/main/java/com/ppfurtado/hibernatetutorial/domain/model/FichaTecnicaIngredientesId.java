@@ -36,4 +36,22 @@ public class FichaTecnicaIngredientesId implements Serializable {
     public void setIngredienteId(Long ingredienteId) {
         this.ingredienteId = ingredienteId;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        FichaTecnicaIngredientesId that = (FichaTecnicaIngredientesId) o;
+
+        if (!fichaTecnicaId.equals(that.fichaTecnicaId)) return false;
+        return ingredienteId.equals(that.ingredienteId);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = fichaTecnicaId.hashCode();
+        result = 31 * result + ingredienteId.hashCode();
+        return result;
+    }
 }
