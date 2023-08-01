@@ -15,6 +15,7 @@ public class Ingredientes {
     @Column(name = "name")
     private String nome;
     @OneToOne
+    @JoinColumn(name = "categoryId")
     private Categoria categoriaId;
 
     public Ingredientes() {

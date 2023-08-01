@@ -37,7 +37,7 @@ public class AcidosGraxos {
     @Column(name = "18:2t")
     private double dezoitoDoisT;
     @Column(name = "18:3n3")
-    private double dezoitoTrêsN3;
+    private double dezoitoTresN3;
     @Column(name = "20:0")
     private double vinteZero;
     @Column(name = "20:1")
@@ -58,7 +58,7 @@ public class AcidosGraxos {
     public AcidosGraxos() {
     }
 
-    public AcidosGraxos(Ingredientes ingredientes, double saturados, double monoinsaturados, double poliinsaturados, double dozeZero, double quatorzeZero, double quatorzeUm, double dezesseisZero, double dezesseisUm, double dezoitoZero, double dezoitoUm, double dezoitoUmT, double dezoitoDoisN6, double dezoitoDoisT, double dezoitoTrêsN3, double vinteZero, double vinteUm, double vinteQuatro, double vinteCinco, double vinteDoisZero, double vinteDoisCinco, double vinteDoisSeis, double vinteQuatroZero) {
+    public AcidosGraxos(Ingredientes ingredientes, double saturados, double monoinsaturados, double poliinsaturados, double dozeZero, double quatorzeZero, double quatorzeUm, double dezesseisZero, double dezesseisUm, double dezoitoZero, double dezoitoUm, double dezoitoUmT, double dezoitoDoisN6, double dezoitoDoisT, double dezoitoTresN3, double vinteZero, double vinteUm, double vinteQuatro, double vinteCinco, double vinteDoisZero, double vinteDoisCinco, double vinteDoisSeis, double vinteQuatroZero) {
         this.ingredientes = ingredientes;
         Saturados = saturados;
         Monoinsaturados = monoinsaturados;
@@ -73,7 +73,7 @@ public class AcidosGraxos {
         this.dezoitoUmT = dezoitoUmT;
         this.dezoitoDoisN6 = dezoitoDoisN6;
         this.dezoitoDoisT = dezoitoDoisT;
-        this.dezoitoTrêsN3 = dezoitoTrêsN3;
+        this.dezoitoTresN3 = dezoitoTresN3;
         this.vinteZero = vinteZero;
         this.vinteUm = vinteUm;
         this.vinteQuatro = vinteQuatro;
@@ -196,12 +196,12 @@ public class AcidosGraxos {
         this.dezoitoDoisT = dezoitoDoisT;
     }
 
-    public double getDezoitoTrêsN3() {
-        return dezoitoTrêsN3;
+    public double getDezoitoTresN3() {
+        return dezoitoTresN3;
     }
 
-    public void setDezoitoTrêsN3(double dezoitoTrêsN3) {
-        this.dezoitoTrêsN3 = dezoitoTrêsN3;
+    public void setDezoitoTresN3(double dezoitoTresN3) {
+        this.dezoitoTresN3 = dezoitoTresN3;
     }
 
     public double getVinteZero() {

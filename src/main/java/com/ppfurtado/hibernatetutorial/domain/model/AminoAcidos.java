@@ -39,9 +39,9 @@ public class AminoAcidos {
     @Column(name = "alanine")
     private double alanina;
     @Column(name = "asparticAcid")
-    private double Acidoaspártico;
+    private double Acidoaspartico;
     @Column(name = "glutamicAcid")
-    private double Acidoglutâmico;
+    private double Acidoglutamico;
     @Column(name = "glycine")
     private double glicina;
     @Column(name = "proline")
@@ -52,7 +52,7 @@ public class AminoAcidos {
     public AminoAcidos() {
     }
 
-    public AminoAcidos(Long id, Ingredientes ingredientesID, double triptofano, double treonina, double isoleucina, double leucina, double lisina, double metionina, double cistina, double fenilalanina, double tirosina, double valina, double arginina, double histidina, double alanina, double acidoaspártico, double acidoglutâmico, double glicina, double prolina, double serina) {
+    public AminoAcidos(Long id, Ingredientes ingredientesID, double triptofano, double treonina, double isoleucina, double leucina, double lisina, double metionina, double cistina, double fenilalanina, double tirosina, double valina, double arginina, double histidina, double alanina, double acidoaspartico, double acidoglutamico, double glicina, double prolina, double serina) {
         this.id = id;
         this.ingredientesID = ingredientesID;
         this.triptofano = triptofano;
@@ -68,8 +68,8 @@ public class AminoAcidos {
         this.arginina = arginina;
         this.histidina = histidina;
         this.alanina = alanina;
-        Acidoaspártico = acidoaspártico;
-        Acidoglutâmico = acidoglutâmico;
+        Acidoaspartico = acidoaspartico;
+        Acidoglutamico = acidoglutamico;
         this.glicina = glicina;
         this.prolina = prolina;
         this.serina = serina;
@@ -195,20 +195,20 @@ public class AminoAcidos {
         this.alanina = alanina;
     }
 
-    public double getAcidoaspártico() {
-        return Acidoaspártico;
+    public double getAcidoaspartico() {
+        return Acidoaspartico;
     }
 
-    public void setAcidoaspártico(double acidoaspártico) {
-        Acidoaspártico = acidoaspártico;
+    public void setAcidoaspartico(double acidoaspartico) {
+        Acidoaspartico = acidoaspartico;
     }
 
-    public double getAcidoglutâmico() {
-        return Acidoglutâmico;
+    public double getAcidoglutamico() {
+        return Acidoglutamico;
     }
 
-    public void setAcidoglutâmico(double acidoglutâmico) {
-        Acidoglutâmico = acidoglutâmico;
+    public void setAcidoglutamico(double acidoglutamico) {
+        Acidoglutamico = acidoglutamico;
     }
 
     public double getGlicina() {

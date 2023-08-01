@@ -2,6 +2,7 @@ package com.ppfurtado.hibernatetutorial.domain.model;
 
 import jakarta.persistence.Embeddable;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -267,8 +268,7 @@ public class ComposicaoAlimento {
 
     public ComposicaoAlimento soma(List<Ingredientes> ingredientes, List<Double> perCapitaLiquido){
 
-        List<ComposicaoAlimento> composicaoAlimentos = ingredientes.stream()
-                .map(i -> new ComposicaoAlimento(i.getComposicaoAlimento())).toList();
+        List<ComposicaoAlimento> composicaoAlimentos = new ArrayList<>(); // ingredientes.stream().map(i -> new ComposicaoAlimento(i.getComposicaoAlimento())).toList();
 
         List<ComposicaoAlimento> finalComposicaoAlimentos = composicaoAlimentos;
 

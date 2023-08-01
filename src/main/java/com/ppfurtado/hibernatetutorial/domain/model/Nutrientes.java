@@ -21,7 +21,7 @@ public class Nutrientes {
     @Column(name = "protein")
     private double proteina;
     @Column(name = "lipids")
-    private double lipídeos;
+    private double lipideos;
     @Column(name = "cholesterol")
     private double colesterol;
     @Column(name = "carbohydrates")
@@ -75,7 +75,7 @@ public class Nutrientes {
         this.energiaKcal = energiaKcal;
         this.energiaKj = energiaKj;
         this.proteina = proteina;
-        this.lipídeos = lipídeos;
+        this.lipideos = lipídeos;
         this.colesterol = colesterol;
         this.carboidrato = carboidrato;
         this.fibraAlimentar = fibraAlimentar;
@@ -147,12 +147,12 @@ public class Nutrientes {
         this.proteina = proteina;
     }
 
-    public double getLipídeos() {
-        return lipídeos;
+    public double getLipideos() {
+        return lipideos;
     }
 
-    public void setLipídeos(double lipídeos) {
-        this.lipídeos = lipídeos;
+    public void setLipideos(double lipideos) {
+        this.lipideos = lipideos;
     }
 
     public double getColesterol() {
