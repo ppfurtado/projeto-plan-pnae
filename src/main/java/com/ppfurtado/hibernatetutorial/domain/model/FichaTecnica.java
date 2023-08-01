@@ -12,7 +12,7 @@ import java.util.Objects;
 import java.util.stream.IntStream;
 
 @Entity
-@Table(name = "ficha_tecnica", schema = "planpnae")
+@Table(name = "technical_data_sheet", schema = "planpnae")
 public class FichaTecnica {
 
     @Id
