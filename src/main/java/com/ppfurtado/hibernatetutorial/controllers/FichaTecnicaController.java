@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RequestMapping("/api/v2/ficha-tecnica")
 @RestController
 public class FichaTecnicaController {
 
@@ -18,21 +19,21 @@ public class FichaTecnicaController {
         this.fichaTecnicaService = fichaTecnicaService;
     }
 
-    @GetMapping("/fichas-tecnicas")
+    @GetMapping()
     public ResponseEntity<List<FichaTecnica>> listaFichaTecnica(){
         List<FichaTecnica> fichaTecnicas = fichaTecnicaService.findAll();
 
         return ResponseEntity.ok(fichaTecnicas);
     }
 
-    @GetMapping("/fichas-tecnicas/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<FichaTecnica> buscarFichaTecnicaPorId(@PathVariable @Validated Long id) throws Exception {
         FichaTecnica fichaTecnica = fichaTecnicaService.findById(id);
 
         return ResponseEntity.ok(fichaTecnica);
     }
 
-    @PostMapping("/fichas-tecnicas/criar")
+    @PostMapping()
     public ResponseEntity<FichaTecnica> salvar(@RequestBody FichaTecnicaRequest request) throws Exception {
         FichaTecnica fichaTecnica = fichaTecnicaService.save(request);
 
@@ -40,7 +41,7 @@ public class FichaTecnicaController {
     }
 
 
-    @DeleteMapping("/fichas-tecnicas/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<FichaTecnica> deletar(@PathVariable Long id) throws Exception {
         FichaTecnica fichaTecnica = fichaTecnicaService.delete(id);
 
