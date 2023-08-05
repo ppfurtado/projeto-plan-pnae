@@ -22,6 +22,11 @@ public abstract class FichaTecnica_ {
 	public static volatile SingularAttribute<FichaTecnica, String> medidaCaseira;
 	
 	/**
+	 * @see com.ppfurtado.planpnae.domain.model.FichaTecnica#modoPreparo
+	 **/
+	public static volatile SingularAttribute<FichaTecnica, String> modoPreparo;
+	
+	/**
 	 * @see com.ppfurtado.planpnae.domain.model.FichaTecnica#ingredientes
 	 **/
 	public static volatile ListAttribute<FichaTecnica, Ingredientes> ingredientes;
@@ -37,26 +42,6 @@ public abstract class FichaTecnica_ {
 	public static volatile SingularAttribute<FichaTecnica, String> perCapitaLiquido;
 	
 	/**
-	 * @see com.ppfurtado.planpnae.domain.model.FichaTecnica#composicaoAlimento
-	 **/
-	public static volatile SingularAttribute<FichaTecnica, ComposicaoAlimento> composicaoAlimento;
-	
-	/**
-	 * @see com.ppfurtado.planpnae.domain.model.FichaTecnica#fatorDeCoccao
-	 **/
-	public static volatile SingularAttribute<FichaTecnica, String> fatorDeCoccao;
-	
-	/**
-	 * @see com.ppfurtado.planpnae.domain.model.FichaTecnica#custoUnitario
-	 **/
-	public static volatile SingularAttribute<FichaTecnica, String> custoUnitario;
-	
-	/**
-	 * @see com.ppfurtado.planpnae.domain.model.FichaTecnica#modoPreparo
-	 **/
-	public static volatile SingularAttribute<FichaTecnica, String> modoPreparo;
-	
-	/**
 	 * @see com.ppfurtado.planpnae.domain.model.FichaTecnica#criado
 	 **/
 	public static volatile SingularAttribute<FichaTecnica, String> criado;
@@ -67,9 +52,19 @@ public abstract class FichaTecnica_ {
 	public static volatile SingularAttribute<FichaTecnica, Long> id;
 	
 	/**
+	 * @see com.ppfurtado.planpnae.domain.model.FichaTecnica#fatorDeCoccao
+	 **/
+	public static volatile SingularAttribute<FichaTecnica, String> fatorDeCoccao;
+	
+	/**
 	 * @see com.ppfurtado.planpnae.domain.model.FichaTecnica
 	 **/
 	public static volatile EntityType<FichaTecnica> class_;
+	
+	/**
+	 * @see com.ppfurtado.planpnae.domain.model.FichaTecnica#custoUnitario
+	 **/
+	public static volatile SingularAttribute<FichaTecnica, String> custoUnitario;
 	
 	/**
 	 * @see com.ppfurtado.planpnae.domain.model.FichaTecnica#perCapitaBruto
@@ -78,15 +73,14 @@ public abstract class FichaTecnica_ {
 
 	public static final String FATOR_DE_CORRECAO = "fatorDeCorrecao";
 	public static final String MEDIDA_CASEIRA = "medidaCaseira";
+	public static final String MODO_PREPARO = "modoPreparo";
 	public static final String INGREDIENTES = "ingredientes";
 	public static final String ULTIMA_ATUALIZACAO = "ultimaAtualizacao";
 	public static final String PER_CAPITA_LIQUIDO = "perCapitaLiquido";
-	public static final String COMPOSICAO_ALIMENTO = "composicaoAlimento";
-	public static final String FATOR_DE_COCCAO = "fatorDeCoccao";
-	public static final String CUSTO_UNITARIO = "custoUnitario";
-	public static final String MODO_PREPARO = "modoPreparo";
 	public static final String CRIADO = "criado";
 	public static final String ID = "id";
+	public static final String FATOR_DE_COCCAO = "fatorDeCoccao";
+	public static final String CUSTO_UNITARIO = "custoUnitario";
 	public static final String PER_CAPITA_BRUTO = "perCapitaBruto";
 
 }

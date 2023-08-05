@@ -27,19 +27,33 @@ public class FichaTecnica {
     )
     private List<Ingredientes> ingredientes;
 
+    @Column(name = "grossPerCapita")
     private String perCapitaBruto;
 
+    @Column(name = "netPerCapita")
     private String perCapitaLiquido;
 
+    @Column(name = "correctionFactor")
     private String fatorDeCorrecao;
 
+    @Column(name = "cookingFactor")
     private String fatorDeCoccao;
 
+    @Column(name = "householdMeasure")
     private String medidaCaseira;
 
+    @Column(name = "unitCost")
     private String custoUnitario;
 
+    @Column(name = "preparationMethod")
+
     private String modoPreparo;
+
+    @Column(name = "created")
+    private String criado;
+
+    @Column(name = "last_updated")
+    private String ultimaAtualizacao;
 
 
     private transient List<Double> perCapitaBrutoToString;
@@ -52,10 +66,8 @@ public class FichaTecnica {
 
     private transient List<Double> custoUnitarioToString;
 
-    private ComposicaoAlimento  composicaoAlimento;
+//    private ComposicaoAlimento  composicaoAlimento;
 
-    private String criado;
-    private String ultimaAtualizacao;
 
     public FichaTecnica() {
     }
@@ -168,13 +180,13 @@ public class FichaTecnica {
         this.modoPreparo = modoPreparo;
     }
 
-    public ComposicaoAlimento getComposicaoAlimento() {
-        return composicaoAlimento;
-    }
-
-    public void setComposicaoAlimento(ComposicaoAlimento composicaoAlimento) {
-        this.composicaoAlimento = composicaoAlimento;
-    }
+//    public ComposicaoAlimento getComposicaoAlimento() {
+//        return composicaoAlimento;
+//    }
+//
+//    public void setComposicaoAlimento(ComposicaoAlimento composicaoAlimento) {
+//        this.composicaoAlimento = composicaoAlimento;
+//    }
 
     public String getCriado() {
         return criado;
