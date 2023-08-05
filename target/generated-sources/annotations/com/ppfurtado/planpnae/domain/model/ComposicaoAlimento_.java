@@ -11,77 +11,77 @@ public abstract class ComposicaoAlimento_ {
 
 	
 	/**
-	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#niacina
+	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#getNiacina
 	 **/
 	public static volatile SingularAttribute<ComposicaoAlimento, String> niacina;
 	
 	/**
-	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#calcio
+	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#getCalcio
 	 **/
 	public static volatile SingularAttribute<ComposicaoAlimento, String> calcio;
 	
 	/**
-	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#manganes
+	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#getManganes
 	 **/
 	public static volatile SingularAttribute<ComposicaoAlimento, String> manganes;
 	
 	/**
-	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#fibraAlimentar
+	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#getFibraAlimentar
 	 **/
 	public static volatile SingularAttribute<ComposicaoAlimento, String> fibraAlimentar;
 	
 	/**
-	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#carboidrato
+	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#getCarboidrato
 	 **/
 	public static volatile SingularAttribute<ComposicaoAlimento, String> carboidrato;
 	
 	/**
-	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#cobre
+	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#getCobre
 	 **/
 	public static volatile SingularAttribute<ComposicaoAlimento, String> cobre;
 	
 	/**
-	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#cinzas
+	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#getCinzas
 	 **/
 	public static volatile SingularAttribute<ComposicaoAlimento, String> cinzas;
 	
 	/**
-	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#retinol
+	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#getRetinol
 	 **/
 	public static volatile SingularAttribute<ComposicaoAlimento, String> retinol;
 	
 	/**
-	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#magnesio
+	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#getMagnesio
 	 **/
 	public static volatile SingularAttribute<ComposicaoAlimento, String> magnesio;
 	
 	/**
-	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#tiamina
+	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#getTiamina
 	 **/
 	public static volatile SingularAttribute<ComposicaoAlimento, String> tiamina;
 	
 	/**
-	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#energiaKj
+	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#getEnergiaKj
 	 **/
 	public static volatile SingularAttribute<ComposicaoAlimento, String> energiaKj;
 	
 	/**
-	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#energiaKcal
+	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#getEnergiaKcal
 	 **/
 	public static volatile SingularAttribute<ComposicaoAlimento, String> energiaKcal;
 	
 	/**
-	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#rae
+	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#getRae
 	 **/
 	public static volatile SingularAttribute<ComposicaoAlimento, String> rae;
 	
 	/**
-	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#lipideos
+	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#getLipideos
 	 **/
 	public static volatile SingularAttribute<ComposicaoAlimento, String> lipideos;
 	
 	/**
-	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#riboflavina
+	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#getRiboflavina
 	 **/
 	public static volatile SingularAttribute<ComposicaoAlimento, String> riboflavina;
 	
@@ -91,52 +91,52 @@ public abstract class ComposicaoAlimento_ {
 	public static volatile EmbeddableType<ComposicaoAlimento> class_;
 	
 	/**
-	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#ferro
+	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#getFerro
 	 **/
 	public static volatile SingularAttribute<ComposicaoAlimento, String> ferro;
 	
 	/**
-	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#zinco
+	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#getZinco
 	 **/
 	public static volatile SingularAttribute<ComposicaoAlimento, String> zinco;
 	
 	/**
-	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#potassio
+	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#getPotassio
 	 **/
 	public static volatile SingularAttribute<ComposicaoAlimento, String> potassio;
 	
 	/**
-	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#vitaminac
+	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#getVitaminac
 	 **/
 	public static volatile SingularAttribute<ComposicaoAlimento, String> vitaminac;
 	
 	/**
-	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#colesterol
+	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#getColesterol
 	 **/
 	public static volatile SingularAttribute<ComposicaoAlimento, String> colesterol;
 	
 	/**
-	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#sodio
+	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#getSodio
 	 **/
 	public static volatile SingularAttribute<ComposicaoAlimento, String> sodio;
 	
 	/**
-	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#re
+	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#getRe
 	 **/
 	public static volatile SingularAttribute<ComposicaoAlimento, String> re;
 	
 	/**
-	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#proteina
+	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#getProteina
 	 **/
 	public static volatile SingularAttribute<ComposicaoAlimento, String> proteina;
 	
 	/**
-	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#fosforo
+	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#getFosforo
 	 **/
 	public static volatile SingularAttribute<ComposicaoAlimento, String> fosforo;
 	
 	/**
-	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#piridoxina
+	 * @see com.ppfurtado.planpnae.domain.model.ComposicaoAlimento#getPiridoxina
 	 **/
 	public static volatile SingularAttribute<ComposicaoAlimento, String> piridoxina;
 

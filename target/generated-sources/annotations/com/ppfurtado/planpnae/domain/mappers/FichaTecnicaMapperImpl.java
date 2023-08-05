@@ -9,7 +9,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-08-01T13:50:24-0300",
+    date = "2023-08-05T00:22:01-0300",
     comments = "version: 1.3.0.Final, compiler: javac, environment: Java 17.0.1 (Oracle Corporation)"
 )
 public class FichaTecnicaMapperImpl implements FichaTecnicaMapper {
@@ -23,6 +23,7 @@ public class FichaTecnicaMapperImpl implements FichaTecnicaMapper {
         FichaTecnica fichaTecnica = new FichaTecnica();
 
         fichaTecnica.setIngredientes( longListToIngredientesList( fichaTecnicaRequest.getIngredientes() ) );
+        fichaTecnica.setModoPreparo( fichaTecnicaRequest.getModoPreparo() );
 
         return fichaTecnica;
     }
@@ -40,6 +41,7 @@ public class FichaTecnicaMapperImpl implements FichaTecnicaMapper {
         fichaTecnicaRequest.setPerCapitaLiquido( FichaTecnicaMapper.perCapitaLiquidoStringToDouble( fichaTecnica.getPerCapitaLiquido() ) );
         fichaTecnicaRequest.setCustoUnitario( FichaTecnicaMapper.custoUnitarioStringToDouble( fichaTecnica.getCustoUnitario() ) );
         fichaTecnicaRequest.setPerCapitaBruto( FichaTecnicaMapper.perCapitaBrutoStringToDouble( fichaTecnica.getPerCapitaBruto() ) );
+        fichaTecnicaRequest.setModoPreparo( fichaTecnica.getModoPreparo() );
 
         return fichaTecnicaRequest;
     }
