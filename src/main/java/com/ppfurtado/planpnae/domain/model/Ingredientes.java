@@ -1,8 +1,11 @@
 package com.ppfurtado.planpnae.domain.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -17,6 +20,14 @@ public class Ingredientes {
     @OneToOne
     @JoinColumn(name = "categoryId")
     private Categoria categoriaId;
+
+    @JsonIgnore
+    @ManyToMany
+    @JoinTable(
+            name = "technical_data_sheet_foods",
+            joinColumns = @JoinColumn(name = "foodId"),
+            inverseJoinColumns = @JoinColumn(name = "technicalDataSheetId"))
+    private List<FichaTecnica> fichaTecnicas = new ArrayList<>();
 
     public Ingredientes() {
     }
@@ -43,6 +54,14 @@ public class Ingredientes {
 
     public void setCategoriaId(Categoria categoriaId) {
         this.categoriaId = categoriaId;
+    }
+
+    public List<FichaTecnica> getFichaTecnicas() {
+        return fichaTecnicas;
+    }
+
+    public void setFichaTecnicas(List<FichaTecnica> fichaTecnicas) {
+        this.fichaTecnicas = fichaTecnicas;
     }
 
     @Override
