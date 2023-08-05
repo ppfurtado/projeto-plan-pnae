@@ -54,7 +54,6 @@ public class FichaTecnicaServiceImpl implements FichaTecnicaService {
 
         fichaTecnica.setIngredientes(ingrediente);
 
-        fichaTecnica.setComposicaoAlimento(composicaoAlimento);
         return fichaTecnicaRepository.save(fichaTecnica);
     }
 
