@@ -10,7 +10,10 @@ public class FichaTecnicaRequest {
     private List<String> medidaCaseira;
     private List<Double> custoUnitario;
 
+    private String modoPreparo;
+
     public FichaTecnicaRequest() {
+
     }
 
     public List<Long> getIngredientes() {
@@ -51,5 +54,13 @@ public class FichaTecnicaRequest {
 
     public void setCustoUnitario(List<Double> custoUnitario) {
         this.custoUnitario = custoUnitario;
+    }
+
+    public String getModoPreparo() {
+        return modoPreparo;
+    }
+
+    public void setModoPreparo(String modoPreparo) {
+        this.modoPreparo = modoPreparo;
     }
 }
