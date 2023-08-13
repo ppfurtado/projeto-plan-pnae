@@ -4,6 +4,7 @@ package com.ppfurtado.planpnae.domain.services.servicesImpls;
 import com.ppfurtado.planpnae.domain.model.Ingredientes;
 import com.ppfurtado.planpnae.domain.repositories.IngredientesRepository;
 import com.ppfurtado.planpnae.domain.services.IngredientesService;
+import com.ppfurtado.planpnae.exception.IngredienteNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,7 +25,7 @@ public class IngredientesServiceImpl implements IngredientesService {
 
     @Override
     public Ingredientes buscarIngredientesPorId(Long id) throws Exception {
-        return ingredientesRepository.findById(id).orElseThrow(() -> new Exception("Ingrediente não encontrado"));
+        return ingredientesRepository.findById(id).orElseThrow(() -> new IngredienteNotFoundException(id));
     }
 
     @Override
