@@ -10,7 +10,7 @@ import java.util.Map;
 
 @Entity
 @Table(name = "menu", schema = "planpnae")
-public class Cartapio {
+public class Cardapio {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +18,10 @@ public class Cartapio {
     @Convert(converter = JpaConverterJson.class)
     @Column(name = "mealSchedule", columnDefinition = "jsonb")
     private Map<String, String> refeicaooHorario = new HashMap<>();
+
+    @Column(name = "dayWeek")
+    private String diaSemana;
+
     @ManyToMany
     @JoinTable(
             name = "menu_foods",
@@ -34,10 +38,10 @@ public class Cartapio {
     @Column(name = "last_updated")
     private Date ultimaAtualizacao;
 
-    public Cartapio() {
+    public Cardapio() {
     }
 
-    public Cartapio(Long id, Map<String, String> refeicaooHorario, List<Ingredientes> ingredientes, double quantidade, Date criada, Date ultimaAtualizacao) {
+    public Cardapio(Long id, Map<String, String> refeicaooHorario, List<Ingredientes> ingredientes, double quantidade, Date criada, Date ultimaAtualizacao) {
         this.id = id;
         this.refeicaooHorario = refeicaooHorario;
         this.ingredientes = ingredientes;
@@ -99,9 +103,9 @@ public class Cartapio {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Cartapio cartapio = (Cartapio) o;
+        Cardapio cardapio = (Cardapio) o;
 
-        return id.equals(cartapio.id);
+        return id.equals(cardapio.id);
     }
 
     @Override
