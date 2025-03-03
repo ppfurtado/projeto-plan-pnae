@@ -1,7 +1,10 @@
 package com.ppfurtado.planpnae.domain.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "nutrients", schema = "planpnae")
 public class Nutrientes {
@@ -11,316 +14,169 @@ public class Nutrientes {
     private Long id;
 
     @OneToOne
+    @JoinColumn(name = "foodId")
     private Ingredientes ingredientes;
+
     @Column(name = "moisture")
-    private double umidade;
+    private Double umidade = 0.0;
+
     @Column(name = "kcal")
-    private double energiaKcal;
+    private Double energiaKcal = 0.0;
+
     @Column(name = "kJ")
-    private double energiaKj;
+    private Double energiaKj = 0.0;
+
     @Column(name = "protein")
-    private double proteina;
+    private Double proteina = 0.0;
+
     @Column(name = "lipids")
-    private double lipideos;
+    private Double lipideos = 0.0;
+
     @Column(name = "cholesterol")
-    private double colesterol;
+    private Double colesterol = 0.0;
+
     @Column(name = "carbohydrates")
-    private double carboidrato;
+    private Double carboidrato = 0.0;
+
     @Column(name = "dietaryFiber")
-    private double fibraAlimentar;
+    private Double fibraAlimentar = 0.0;
+
     @Column(name = "ash")
-    private double cinzas;
+    private Double cinzas = 0.0;
+
     @Column(name = "calcium")
-    private double calcio;
+    private Double calcio = 0.0;
+
     @Column(name = "magnesium")
-    private double magnesio;
+    private Double magnesio = 0.0;
+
     @Column(name = "manganese")
-    private double manganes;
+    private Double manganes = 0.0;
+
     @Column(name = "phosphorus")
-    private double fosforo;
+    private Double fosforo = 0.0;
+
     @Column(name = "iron")
-    private double ferro;
+    private Double ferro = 0.0;
+
     @Column(name = "sodium")
-    private double sodio;
+    private Double sodio = 0.0;
+
     @Column(name = "potassium")
-    private double potassio;
+    private Double potassio = 0.0;
+
     @Column(name = "copper")
-    private double cobre;
+    private Double cobre = 0.0;
+
     @Column(name = "zinc")
-    private double zinco;
+    private Double zinco = 0.0;
+
     @Column(name = "retinol")
-    private double retinol;
+    private Double retinol = 0.0;
+
     @Column(name = "re")
-    private double re;
+    private Double re = 0.0;
+
     @Column(name = "rae")
-    private double rae;
+    private Double rae = 0.0;
+
     @Column(name = "thiamin")
-    private double tiamina;
+    private Double tiamina = 0.0;
+
     @Column(name = "riboflavin")
-    private double riboflavina;
+    private Double riboflavina = 0.0;
+
     @Column(name = "pyridoxine")
-    private double piridoxina;
+    private Double piridoxina = 0.0;
+
     @Column(name = "niacin")
-    private double niacina;
+    private Double niacina = 0.0;
+
     @Column(name = "vitaminC")
-    private double vitaminaC;
+    private Double vitaminaC = 0.0;
 
     public Nutrientes() {
+        // Construtor padr�o inicializa os campos com 0.0
     }
 
-    public Nutrientes(Long id, Ingredientes ingredientes, double umidade, double energiaKcal, double energiaKj, double proteina, double lipídeos, double colesterol, double carboidrato, double fibraAlimentar, double cinzas, double calcio, double magnesio, double manganes, double fosforo, double ferro, double sodio, double potassio, double cobre, double zinco, double retinol, double re, double rae, double tiamina, double riboflavina, double piridoxina, double niacina, double vitaminaC) {
+    public Nutrientes(Long id, Ingredientes ingredientes, Double umidade, Double energiaKcal, Double energiaKj, Double proteina, Double lipideos, Double colesterol, Double carboidrato, Double fibraAlimentar, Double cinzas, Double calcio, Double magnesio, Double manganes, Double fosforo, Double ferro, Double sodio, Double potassio, Double cobre, Double zinco, Double retinol, Double re, Double rae, Double tiamina, Double riboflavina, Double piridoxina, Double niacina, Double vitaminaC) {
         this.id = id;
         this.ingredientes = ingredientes;
-        this.umidade = umidade;
-        this.energiaKcal = energiaKcal;
-        this.energiaKj = energiaKj;
-        this.proteina = proteina;
-        this.lipideos = lipídeos;
-        this.colesterol = colesterol;
-        this.carboidrato = carboidrato;
-        this.fibraAlimentar = fibraAlimentar;
-        this.cinzas = cinzas;
-        this.calcio = calcio;
-        this.magnesio = magnesio;
-        this.manganes = manganes;
-        this.fosforo = fosforo;
-        this.ferro = ferro;
-        this.sodio = sodio;
-        this.potassio = potassio;
-        this.cobre = cobre;
-        this.zinco = zinco;
-        this.retinol = retinol;
-        this.re = re;
-        this.rae = rae;
-        this.tiamina = tiamina;
-        this.riboflavina = riboflavina;
-        this.piridoxina = piridoxina;
-        this.niacina = niacina;
-        this.vitaminaC = vitaminaC;
+        this.umidade = umidade != null ? umidade : 0.0;
+        this.energiaKcal = energiaKcal != null ? energiaKcal : 0.0;
+        this.energiaKj = energiaKj != null ? energiaKj : 0.0;
+        this.proteina = proteina != null ? proteina : 0.0;
+        this.lipideos = lipideos != null ? lipideos : 0.0;
+        this.colesterol = colesterol != null ? colesterol : 0.0;
+        this.carboidrato = carboidrato != null ? carboidrato : 0.0;
+        this.fibraAlimentar = fibraAlimentar != null ? fibraAlimentar : 0.0;
+        this.cinzas = cinzas != null ? cinzas : 0.0;
+        this.calcio = calcio != null ? calcio : 0.0;
+        this.magnesio = magnesio != null ? magnesio : 0.0;
+        this.manganes = manganes != null ? manganes : 0.0;
+        this.fosforo = fosforo != null ? fosforo : 0.0;
+        this.ferro = ferro != null ? ferro : 0.0;
+        this.sodio = sodio != null ? sodio : 0.0;
+        this.potassio = potassio != null ? potassio : 0.0;
+        this.cobre = cobre != null ? cobre : 0.0;
+        this.zinco = zinco != null ? zinco : 0.0;
+        this.retinol = retinol != null ? retinol : 0.0;
+        this.re = re != null ? re : 0.0;
+        this.rae = rae != null ? rae : 0.0;
+        this.tiamina = tiamina != null ? tiamina : 0.0;
+        this.riboflavina = riboflavina != null ? riboflavina : 0.0;
+        this.piridoxina = piridoxina != null ? piridoxina : 0.0;
+        this.niacina = niacina != null ? niacina : 0.0;
+        this.vitaminaC = vitaminaC != null ? vitaminaC : 0.0;
     }
 
-    public Long getId() {
-        return id;
+    public Nutrientes acumular(Nutrientes outro) {
+        if (outro == null) {
+            return this;
+        }
+
+        acumularMacronutrientes(outro);
+        acumularMinerais(outro);
+        acumularVitaminas(outro);
+
+        return this;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    private Double somar(Double valor1, Double valor2) {
+        return (valor1 != null ? valor1 : 0.0) + (valor2 != null ? valor2 : 0.0);
     }
 
-    public Ingredientes getIngredientes() {
-        return ingredientes;
+    private void acumularMacronutrientes(Nutrientes outro) {
+        this.umidade = somar(this.umidade, outro.umidade);
+        this.energiaKcal = somar(this.energiaKcal, outro.energiaKcal);
+        this.energiaKj = somar(this.energiaKj, outro.energiaKj);
+        this.proteina = somar(this.proteina, outro.proteina);
+        this.lipideos = somar(this.lipideos, outro.lipideos);
+        this.carboidrato = somar(this.carboidrato, outro.carboidrato);
+        this.fibraAlimentar = somar(this.fibraAlimentar, outro.fibraAlimentar);
     }
 
-    public void setIngredientes(Ingredientes ingredientes) {
-        this.ingredientes = ingredientes;
+    private void acumularMinerais(Nutrientes outro) {
+        this.calcio = somar(this.calcio, outro.calcio);
+        this.magnesio = somar(this.magnesio, outro.magnesio);
+        this.manganes = somar(this.manganes, outro.manganes);
+        this.fosforo = somar(this.fosforo, outro.fosforo);
+        this.ferro = somar(this.ferro, outro.ferro);
+        this.sodio = somar(this.sodio, outro.sodio);
+        this.potassio = somar(this.potassio, outro.potassio);
+        this.cobre = somar(this.cobre, outro.cobre);
+        this.zinco = somar(this.zinco, outro.zinco);
     }
 
-    public double getUmidade() {
-        return umidade;
-    }
-
-    public void setUmidade(double umidade) {
-        this.umidade = umidade;
-    }
-
-    public double getEnergiaKcal() {
-        return energiaKcal;
-    }
-
-    public void setEnergiaKcal(double energiaKcal) {
-        this.energiaKcal = energiaKcal;
-    }
-
-    public double getEnergiaKj() {
-        return energiaKj;
-    }
-
-    public void setEnergiaKj(double energiaKj) {
-        this.energiaKj = energiaKj;
-    }
-
-    public double getProteina() {
-        return proteina;
-    }
-
-    public void setProteina(double proteina) {
-        this.proteina = proteina;
-    }
-
-    public double getLipideos() {
-        return lipideos;
-    }
-
-    public void setLipideos(double lipideos) {
-        this.lipideos = lipideos;
-    }
-
-    public double getColesterol() {
-        return colesterol;
-    }
-
-    public void setColesterol(double colesterol) {
-        this.colesterol = colesterol;
-    }
-
-    public double getCarboidrato() {
-        return carboidrato;
-    }
-
-    public void setCarboidrato(double carboidrato) {
-        this.carboidrato = carboidrato;
-    }
-
-    public double getFibraAlimentar() {
-        return fibraAlimentar;
-    }
-
-    public void setFibraAlimentar(double fibraAlimentar) {
-        this.fibraAlimentar = fibraAlimentar;
-    }
-
-    public double getCinzas() {
-        return cinzas;
-    }
-
-    public void setCinzas(double cinzas) {
-        this.cinzas = cinzas;
-    }
-
-    public double getCalcio() {
-        return calcio;
-    }
-
-    public void setCalcio(double calcio) {
-        this.calcio = calcio;
-    }
-
-    public double getMagnesio() {
-        return magnesio;
-    }
-
-    public void setMagnesio(double magnesio) {
-        this.magnesio = magnesio;
-    }
-
-    public double getManganes() {
-        return manganes;
-    }
-
-    public void setManganes(double manganes) {
-        this.manganes = manganes;
-    }
-
-    public double getFosforo() {
-        return fosforo;
-    }
-
-    public void setFosforo(double fosforo) {
-        this.fosforo = fosforo;
-    }
-
-    public double getFerro() {
-        return ferro;
-    }
-
-    public void setFerro(double ferro) {
-        this.ferro = ferro;
-    }
-
-    public double getSodio() {
-        return sodio;
-    }
-
-    public void setSodio(double sodio) {
-        this.sodio = sodio;
-    }
-
-    public double getPotassio() {
-        return potassio;
-    }
-
-    public void setPotassio(double potassio) {
-        this.potassio = potassio;
-    }
-
-    public double getCobre() {
-        return cobre;
-    }
-
-    public void setCobre(double cobre) {
-        this.cobre = cobre;
-    }
-
-    public double getZinco() {
-        return zinco;
-    }
-
-    public void setZinco(double zinco) {
-        this.zinco = zinco;
-    }
-
-    public double getRetinol() {
-        return retinol;
-    }
-
-    public void setRetinol(double retinol) {
-        this.retinol = retinol;
-    }
-
-    public double getRe() {
-        return re;
-    }
-
-    public void setRe(double re) {
-        this.re = re;
-    }
-
-    public double getRae() {
-        return rae;
-    }
-
-    public void setRae(double rae) {
-        this.rae = rae;
-    }
-
-    public double getTiamina() {
-        return tiamina;
-    }
-
-    public void setTiamina(double tiamina) {
-        this.tiamina = tiamina;
-    }
-
-    public double getRiboflavina() {
-        return riboflavina;
-    }
-
-    public void setRiboflavina(double riboflavina) {
-        this.riboflavina = riboflavina;
-    }
-
-    public double getPiridoxina() {
-        return piridoxina;
-    }
-
-    public void setPiridoxina(double piridoxina) {
-        this.piridoxina = piridoxina;
-    }
-
-    public double getNiacina() {
-        return niacina;
-    }
-
-    public void setNiacina(double niacina) {
-        this.niacina = niacina;
-    }
-
-    public double getVitaminaC() {
-        return vitaminaC;
-    }
-
-    public void setVitaminaC(double vitaminaC) {
-        this.vitaminaC = vitaminaC;
+    private void acumularVitaminas(Nutrientes outro) {
+        this.retinol = somar(this.retinol, outro.retinol);
+        this.re = somar(this.re, outro.re);
+        this.rae = somar(this.rae, outro.rae);
+        this.tiamina = somar(this.tiamina, outro.tiamina);
+        this.riboflavina = somar(this.riboflavina, outro.riboflavina);
+        this.piridoxina = somar(this.piridoxina, outro.piridoxina);
+        this.niacina = somar(this.niacina, outro.niacina);
+        this.vitaminaC = somar(this.vitaminaC, outro.vitaminaC);
     }
 
     @Override
