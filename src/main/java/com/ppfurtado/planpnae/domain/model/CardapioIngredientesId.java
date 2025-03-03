@@ -2,9 +2,14 @@ package com.ppfurtado.planpnae.domain.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import lombok.*;
 
 import java.io.Serializable;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Embeddable
 public class CardapioIngredientesId implements Serializable {
 
@@ -13,30 +18,6 @@ public class CardapioIngredientesId implements Serializable {
 
     @Column(name = "foodId")
     private Long ingredienteID;
-
-    public CardapioIngredientesId() {
-    }
-
-    public CardapioIngredientesId(Long cardapioId, Long ingredienteID) {
-        this.cardapioId = cardapioId;
-        this.ingredienteID = ingredienteID;
-    }
-
-    public Long getCardapioId() {
-        return cardapioId;
-    }
-
-    public void setCardapioId(Long cardapioId) {
-        this.cardapioId = cardapioId;
-    }
-
-    public Long getIngredienteID() {
-        return ingredienteID;
-    }
-
-    public void setIngredienteID(Long ingredienteID) {
-        this.ingredienteID = ingredienteID;
-    }
 
     @Override
     public boolean equals(Object o) {

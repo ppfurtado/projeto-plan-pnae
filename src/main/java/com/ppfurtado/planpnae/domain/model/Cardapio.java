@@ -2,12 +2,18 @@ package com.ppfurtado.planpnae.domain.model;
 
 import com.ppfurtado.planpnae.domain.mappers.JpaConverterJson;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode
 @Entity
 @Table(name = "menu", schema = "planpnae")
 public class Cardapio {
@@ -38,78 +44,4 @@ public class Cardapio {
     @Column(name = "last_updated")
     private Date ultimaAtualizacao;
 
-    public Cardapio() {
-    }
-
-    public Cardapio(Long id, Map<String, String> refeicaooHorario, List<Ingredientes> ingredientes, double quantidade, Date criada, Date ultimaAtualizacao) {
-        this.id = id;
-        this.refeicaooHorario = refeicaooHorario;
-        this.ingredientes = ingredientes;
-        this.quantidade = quantidade;
-        this.criada = criada;
-        this.ultimaAtualizacao = ultimaAtualizacao;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Map<String, String> getRefeicaooHorario() {
-        return refeicaooHorario;
-    }
-
-    public void setRefeicaooHorario(Map<String, String> refeicaooHorario) {
-        this.refeicaooHorario = refeicaooHorario;
-    }
-
-    public List<Ingredientes> getIngredientes() {
-        return ingredientes;
-    }
-
-    public void setIngredientes(List<Ingredientes> ingredientes) {
-        this.ingredientes = ingredientes;
-    }
-
-    public double getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(double quantidade) {
-        this.quantidade = quantidade;
-    }
-
-    public Date getCriada() {
-        return criada;
-    }
-
-    public void setCriada(Date criada) {
-        this.criada = criada;
-    }
-
-    public Date getUltimaAtualizacao() {
-        return ultimaAtualizacao;
-    }
-
-    public void setUltimaAtualizacao(Date ultimaAtualizacao) {
-        this.ultimaAtualizacao = ultimaAtualizacao;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Cardapio cardapio = (Cardapio) o;
-
-        return id.equals(cardapio.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return id.hashCode();
-    }
 }
