@@ -1,12 +1,12 @@
-package com.ppfurtado.planpnae.domain.dtos;
+package com.ppfurtado.planpnae.domain.specification;
 
 import com.ppfurtado.planpnae.domain.model.Ingredientes;
 import com.ppfurtado.planpnae.domain.model.Ingredientes_;
 import org.springframework.data.jpa.domain.Specification;
 
-public class IngredientesFiltro {
+public class SpecificationIngredientes {
 
-    private IngredientesFiltro() {
+    private SpecificationIngredientes() {
     }
 
     public static Specification<Ingredientes> buscarPorId(Long id){
