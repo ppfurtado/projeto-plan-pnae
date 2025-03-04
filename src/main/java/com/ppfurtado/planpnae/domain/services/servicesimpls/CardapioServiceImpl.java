@@ -1,4 +1,4 @@
-package com.ppfurtado.planpnae.domain.services.servicesImpls;
+package com.ppfurtado.planpnae.domain.services.servicesimpls;
 
 import com.ppfurtado.planpnae.domain.dtos.CardapioRequest;
 import com.ppfurtado.planpnae.domain.mappers.CardapioMapper;
