@@ -1,5 +1,6 @@
 package com.ppfurtado.planpnae.controllers;
 
+import com.ppfurtado.planpnae.domain.dtos.IngredientesResponse;
 import com.ppfurtado.planpnae.domain.model.Ingredientes;
 import com.ppfurtado.planpnae.domain.services.IngredientesService;
 import org.springframework.http.ResponseEntity;
@@ -20,8 +21,8 @@ public class IngretientesController {
 
 
     @GetMapping()
-    public ResponseEntity<List<Ingredientes>> buscaIngredientes(){
-        List<Ingredientes> ingredientes = ingredientesService.buscarIngrediente();
+    public ResponseEntity<List<IngredientesResponse>> buscaIngredientes(){
+        List<IngredientesResponse> ingredientes = ingredientesService.buscarIngrediente().stream().map(ingrediente -> new IngredientesResponse(ingrediente.getId(), ingrediente.getNome(), ingrediente.getCategoriaId())).toList();
 
         return ResponseEntity.ok(ingredientes);
     }
