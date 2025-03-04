@@ -1,4 +1,4 @@
-package com.ppfurtado.planpnae.domain.services.servicesImpls;
+package com.ppfurtado.planpnae.domain.services.servicesimpls;
 
 
 import com.ppfurtado.planpnae.domain.model.Ingredientes;
@@ -8,6 +8,8 @@ import com.ppfurtado.planpnae.exception.IngredienteNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+import static com.ppfurtado.planpnae.domain.specification.SpecificationIngredientes.buscarPorNome;
 
 @Service
 public class IngredientesServiceImpl implements IngredientesService {
@@ -30,7 +32,7 @@ public class IngredientesServiceImpl implements IngredientesService {
 
     @Override
     public List<Ingredientes> buscarIngredientesPorNome(String nome) {
-        return ingredientesRepository.findAllByNomeContaining(nome);
+        return ingredientesRepository.findAll(buscarPorNome(nome));
     }
 
 }
