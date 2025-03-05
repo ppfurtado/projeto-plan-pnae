@@ -95,6 +95,35 @@ public class ComposicaoAlimento {
     public ComposicaoAlimento() {
     }
 
+    public ComposicaoAlimento(ComposicaoAlimento original) {
+        this.umidade = original.umidade;
+        this.energiaKcal = original.energiaKcal;
+        this.energiaKj = original.energiaKj;
+        this.proteina = original.proteina;
+        this.lipideos = original.lipideos;
+        this.colesterol = original.colesterol;
+        this.carboidrato = original.carboidrato;
+        this.fibraAlimentar = original.fibraAlimentar;
+        this.cinzas = original.cinzas;
+        this.calcio = original.calcio;
+        this.magnesio = original.magnesio;
+        this.manganes = original.manganes;
+        this.fosforo = original.fosforo;
+        this.ferro = original.ferro;
+        this.sodio = original.sodio;
+        this.potassio = original.potassio;
+        this.cobre = original.cobre;
+        this.zinco = original.zinco;
+        this.retinol = original.retinol;
+        this.re = original.re;
+        this.rae = original.rae;
+        this.tiamina = original.tiamina;
+        this.riboflavina = original.riboflavina;
+        this.piridoxina = original.piridoxina;
+        this.niacina = original.niacina;
+        this.vitaminaC = original.vitaminaC;
+    }
+
     public ComposicaoAlimento acumular(ComposicaoAlimento outro) {
         if (outro == null) {
             return null;

@@ -23,6 +23,12 @@ public class Nutrientes {
     public Nutrientes() {
     }
 
+    public Nutrientes(Nutrientes original) {
+        this.id = original.id;
+        this.ingredientes = original.ingredientes;
+        this.composicaoAlimento = new ComposicaoAlimento(original.composicaoAlimento);
+    }
+
     public Nutrientes(Long id, Ingredientes ingredientes, ComposicaoAlimento composicaoAlimento) {
         this.id = id;
         this.ingredientes = ingredientes;

@@ -6,6 +6,7 @@ import com.ppfurtado.planpnae.domain.services.NutrientesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.ppfurtado.planpnae.domain.specification.IngredientesSpecification.buscarPorListIdIngredientes;
@@ -18,6 +19,11 @@ public class NutrientesServiceImpl implements NutrientesService {
 
     @Override
     public List<Nutrientes> findAllNutrientes(List<Long> idsNutrientes) {
-        return nutrientesRepository.findAll(buscarPorListIdIngredientes(idsNutrientes));
+        List<Nutrientes> nutrientesOriginais = nutrientesRepository.findAll(buscarPorListIdIngredientes(idsNutrientes));
+
+        List<Nutrientes> nutrientesCopias = new ArrayList<>();
+        nutrientesOriginais.forEach(o -> nutrientesCopias.add(new Nutrientes(o)));
+
+        return nutrientesCopias;
     }
 }

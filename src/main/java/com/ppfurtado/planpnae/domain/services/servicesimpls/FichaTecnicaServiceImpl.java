@@ -39,6 +39,7 @@ public class FichaTecnicaServiceImpl implements FichaTecnicaService {
     public FichaTecnica save(FichaTecnicaRequest request) throws JsonProcessingException {
 
         List<Ingredientes> ingrediente = ingredientesRepository.findAllById(request.getIngredientes());
+        List<Nutrientes> allNutrientes = nutrientesService.findAllNutrientes(request.getIngredientes());
 
         ComposicaoAlimento composicaoAlimento = new ComposicaoAlimento().soma(ingrediente, request.getPerCapitaLiquido());
 
