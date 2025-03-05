@@ -1,7 +1,13 @@
 package com.ppfurtado.planpnae.domain.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode
 @Entity(name = "amino_acids")
 public class AminoAcidos {
 
@@ -39,9 +45,9 @@ public class AminoAcidos {
     @Column(name = "alanine")
     private double alanina;
     @Column(name = "asparticAcid")
-    private double Acidoaspartico;
+    private double acidoaspartico;
     @Column(name = "glutamicAcid")
-    private double Acidoglutamico;
+    private double acidoglutamico;
     @Column(name = "glycine")
     private double glicina;
     @Column(name = "proline")
@@ -49,204 +55,4 @@ public class AminoAcidos {
     @Column(name = "serine")
     private double serina;
 
-    public AminoAcidos() {
-    }
-
-    public AminoAcidos(Long id, Ingredientes ingredientesID, double triptofano, double treonina, double isoleucina, double leucina, double lisina, double metionina, double cistina, double fenilalanina, double tirosina, double valina, double arginina, double histidina, double alanina, double acidoaspartico, double acidoglutamico, double glicina, double prolina, double serina) {
-        this.id = id;
-        this.ingredientesID = ingredientesID;
-        this.triptofano = triptofano;
-        this.treonina = treonina;
-        this.isoleucina = isoleucina;
-        this.leucina = leucina;
-        this.lisina = lisina;
-        this.metionina = metionina;
-        this.cistina = cistina;
-        this.fenilalanina = fenilalanina;
-        this.tirosina = tirosina;
-        this.valina = valina;
-        this.arginina = arginina;
-        this.histidina = histidina;
-        this.alanina = alanina;
-        Acidoaspartico = acidoaspartico;
-        Acidoglutamico = acidoglutamico;
-        this.glicina = glicina;
-        this.prolina = prolina;
-        this.serina = serina;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Ingredientes getIngredientesID() {
-        return ingredientesID;
-    }
-
-    public void setIngredientesID(Ingredientes ingredientesID) {
-        this.ingredientesID = ingredientesID;
-    }
-
-    public double getTriptofano() {
-        return triptofano;
-    }
-
-    public void setTriptofano(double triptofano) {
-        this.triptofano = triptofano;
-    }
-
-    public double getTreonina() {
-        return treonina;
-    }
-
-    public void setTreonina(double treonina) {
-        this.treonina = treonina;
-    }
-
-    public double getIsoleucina() {
-        return isoleucina;
-    }
-
-    public void setIsoleucina(double isoleucina) {
-        this.isoleucina = isoleucina;
-    }
-
-    public double getLeucina() {
-        return leucina;
-    }
-
-    public void setLeucina(double leucina) {
-        this.leucina = leucina;
-    }
-
-    public double getLisina() {
-        return lisina;
-    }
-
-    public void setLisina(double lisina) {
-        this.lisina = lisina;
-    }
-
-    public double getMetionina() {
-        return metionina;
-    }
-
-    public void setMetionina(double metionina) {
-        this.metionina = metionina;
-    }
-
-    public double getCistina() {
-        return cistina;
-    }
-
-    public void setCistina(double cistina) {
-        this.cistina = cistina;
-    }
-
-    public double getFenilalanina() {
-        return fenilalanina;
-    }
-
-    public void setFenilalanina(double fenilalanina) {
-        this.fenilalanina = fenilalanina;
-    }
-
-    public double getTirosina() {
-        return tirosina;
-    }
-
-    public void setTirosina(double tirosina) {
-        this.tirosina = tirosina;
-    }
-
-    public double getValina() {
-        return valina;
-    }
-
-    public void setValina(double valina) {
-        this.valina = valina;
-    }
-
-    public double getArginina() {
-        return arginina;
-    }
-
-    public void setArginina(double arginina) {
-        this.arginina = arginina;
-    }
-
-    public double getHistidina() {
-        return histidina;
-    }
-
-    public void setHistidina(double histidina) {
-        this.histidina = histidina;
-    }
-
-    public double getAlanina() {
-        return alanina;
-    }
-
-    public void setAlanina(double alanina) {
-        this.alanina = alanina;
-    }
-
-    public double getAcidoaspartico() {
-        return Acidoaspartico;
-    }
-
-    public void setAcidoaspartico(double acidoaspartico) {
-        Acidoaspartico = acidoaspartico;
-    }
-
-    public double getAcidoglutamico() {
-        return Acidoglutamico;
-    }
-
-    public void setAcidoglutamico(double acidoglutamico) {
-        Acidoglutamico = acidoglutamico;
-    }
-
-    public double getGlicina() {
-        return glicina;
-    }
-
-    public void setGlicina(double glicina) {
-        this.glicina = glicina;
-    }
-
-    public double getProlina() {
-        return prolina;
-    }
-
-    public void setProlina(double prolina) {
-        this.prolina = prolina;
-    }
-
-    public double getSerina() {
-        return serina;
-    }
-
-    public void setSerina(double serina) {
-        this.serina = serina;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        AminoAcidos that = (AminoAcidos) o;
-
-        return id.equals(that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return id.hashCode();
-    }
 }
