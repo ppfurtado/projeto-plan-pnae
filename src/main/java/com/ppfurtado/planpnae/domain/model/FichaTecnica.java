@@ -46,7 +46,6 @@ public class FichaTecnica {
     private String custoUnitario;
 
     @Column(name = "preparationMethod")
-
     private String modoPreparo;
 
     @Column(name = "created")
@@ -65,8 +64,6 @@ public class FichaTecnica {
     private transient List<String> medidaCaseiraToString;
 
     private transient List<Double> custoUnitarioToString;
-
-//    private ComposicaoAlimento  composicaoAlimento;
 
 
     public FichaTecnica() {
@@ -179,14 +176,6 @@ public class FichaTecnica {
     public void setModoPreparo(String modoPreparo) {
         this.modoPreparo = modoPreparo;
     }
-
-//    public ComposicaoAlimento getComposicaoAlimento() {
-//        return composicaoAlimento;
-//    }
-//
-//    public void setComposicaoAlimento(ComposicaoAlimento composicaoAlimento) {
-//        this.composicaoAlimento = composicaoAlimento;
-//    }
 
     public String getCriado() {
         return criado;

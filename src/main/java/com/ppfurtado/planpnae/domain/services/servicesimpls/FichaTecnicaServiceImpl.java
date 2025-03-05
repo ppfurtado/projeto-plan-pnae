@@ -1,28 +1,28 @@
-package com.ppfurtado.planpnae.domain.services.servicesImpls;
+package com.ppfurtado.planpnae.domain.services.servicesimpls;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.ppfurtado.planpnae.domain.dtos.FichaTecnicaRequest;
 import com.ppfurtado.planpnae.domain.mappers.FichaTecnicaMapper;
 import com.ppfurtado.planpnae.domain.model.ComposicaoAlimento;
 import com.ppfurtado.planpnae.domain.model.FichaTecnica;
 import com.ppfurtado.planpnae.domain.model.Ingredientes;
+import com.ppfurtado.planpnae.domain.model.Nutrientes;
 import com.ppfurtado.planpnae.domain.repositories.FichaTecnicaRepository;
 import com.ppfurtado.planpnae.domain.repositories.IngredientesRepository;
 import com.ppfurtado.planpnae.domain.services.FichaTecnicaService;
+import com.ppfurtado.planpnae.domain.services.NutrientesService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@RequiredArgsConstructor
 @Service
 public class FichaTecnicaServiceImpl implements FichaTecnicaService {
 
     private final FichaTecnicaRepository fichaTecnicaRepository;
     private final IngredientesRepository ingredientesRepository;
+    private final NutrientesService nutrientesService;
 
-    public FichaTecnicaServiceImpl(FichaTecnicaRepository fichaTecnicaRepository, IngredientesRepository ingredientesRepository) {
-        this.fichaTecnicaRepository = fichaTecnicaRepository;
-        this.ingredientesRepository = ingredientesRepository;
-    }
 
 
     @Override
@@ -36,12 +36,12 @@ public class FichaTecnicaServiceImpl implements FichaTecnicaService {
     }
 
     @Override
-    public FichaTecnica save(FichaTecnicaRequest request) throws JsonProcessingException {
+    public FichaTecnica save(FichaTecnicaRequest request) throws Exception {
 
         List<Ingredientes> ingrediente = ingredientesRepository.findAllById(request.getIngredientes());
         List<Nutrientes> allNutrientes = nutrientesService.findAllNutrientes(request.getIngredientes());
 
-        ComposicaoAlimento composicaoAlimento = new ComposicaoAlimento().soma(ingrediente, request.getPerCapitaLiquido());
+        ComposicaoAlimento composicaoAlimento = new ComposicaoAlimento().soma(allNutrientes, request.getPerCapitaLiquido());
 
         FichaTecnica fichaTecnica = FichaTecnicaMapper.INSTANCE.toEntity(request);
 
