@@ -15,7 +15,7 @@
     <description>hibernate-tutorial</description>
     <properties>
         <java.version>17</java.version>
-        <org.mapstruct.version>1.3.0.Final</org.mapstruct.version>
+        <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
         <org.jpamodelgen.version>6.3.0.CR1</org.jpamodelgen.version>
         <org.projectlombok.version>1.18.36</org.projectlombok.version>
     </properties>
@@ -98,27 +98,12 @@
                             <artifactId>hibernate-jpamodelgen</artifactId>
                             <version>${org.jpamodelgen.version}</version>
                         </path>
-                        <annotationProcessorPaths>
-                            <path>
-                                <groupId>org.projectlombok</groupId>
-                                <artifactId>lombok</artifactId>
-                                <version>${org.projectlombok.version}</version>
-                            </path>
-                        </annotationProcessorPaths>
-                    </annotationProcessorPaths>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
+                        <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
                             <version>${org.projectlombok.version}</version>
-                        </exclude>
-                    </excludes>
+                        </path>
+                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
         </plugins>
