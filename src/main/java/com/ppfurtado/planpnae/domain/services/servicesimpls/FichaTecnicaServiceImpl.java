@@ -41,7 +41,7 @@ public class FichaTecnicaServiceImpl implements FichaTecnicaService {
         List<Ingredientes> ingrediente = ingredientesRepository.findAllById(request.getIngredientes());
         List<Nutrientes> allNutrientes = nutrientesService.findAllNutrientes(request.getIngredientes());
 
-        ComposicaoAlimento composicaoAlimento = new ComposicaoAlimento().soma(allNutrientes, request.getPerCapitaLiquido());
+        ComposicaoAlimento somatorioComposicaoAlimento = new ComposicaoAlimento().soma(allNutrientes, request.getPerCapitaLiquido());
 
         FichaTecnica fichaTecnica = FichaTecnicaMapper.INSTANCE.toEntity(request);
 
