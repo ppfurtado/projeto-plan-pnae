@@ -19,6 +19,9 @@ public class FichaTecnica {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "name")
+    private String nome;
+
     @ManyToMany
     @JoinTable(
             name = "technical_data_sheet_foods",
@@ -208,13 +211,13 @@ public class FichaTecnica {
 
 
     @PrePersist
-    public void preAgendar() throws UnknownHostException {
+    public void preAgendar() {
         this.setCriado(LocalDateTime.now().toString());
         this.setUltimaAtualizacao(LocalDateTime.now().toString());
     }
 
     @PreUpdate
-    public void atualiza() throws UnknownHostException {
+    public void atualiza() {
         this.setUltimaAtualizacao(LocalDateTime.now().toString());
     }
 }
